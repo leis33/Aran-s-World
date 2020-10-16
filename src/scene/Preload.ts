@@ -1,25 +1,23 @@
-import { Boot } from "./Boot";
-
 class Preload extends Phaser.Scene {
+    private loadingText: Phaser.GameObjects.Text;
 
     constructor() {
         super("preload");
     }
 
     create() {
-        this.load.on("progress", this.onProgressUpdated, this);
         this.load.on("load", this.onFileLoaded, this);
         this.load.on("complete", this.onComplete, this);
+
+        this.loadingText = this.add.text(this.cameras.main.width / 2, this.cameras.main.height / 2, "Loading..", {font: "40px Calibri", fill: "black"});
+        this.loadingText.setOrigin(0.5);
+        this.add.existing(this.loadingText);
 
         this.load.start();
     }
 
-    private onProgressUpdated(value: number): void {
-        console.log("progress update:", value);
-    }
-
-    private onFileLoaded(file: Phaser.Loader.File): void {
-        console.log("file loaded: ", file);
+    private onFileLoaded(): void {
+        this.loadingText.text += "..";
     }
 
     private onComplete(): void {
