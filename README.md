@@ -1,2 +1,1 @@
-This will be the base for our Phaser 3 project.
-
+A group project for a game dev course.
