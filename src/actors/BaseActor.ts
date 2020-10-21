@@ -5,6 +5,7 @@ abstract class BaseActor extends Phaser.Physics.Arcade.Sprite {
         super(scene, x, y, texture);
 
         this._hitPoints = hp;
+        this.scene.physics.add.existing(this);
     }
 
     public get hitPoints(): number {

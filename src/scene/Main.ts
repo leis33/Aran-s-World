@@ -14,6 +14,10 @@ class Main extends Phaser.Scene {
         this.add.existing(this.player);
     }
 
+    update() {
+        this.player.update()
+    }
+
 }
 
 export { Main }

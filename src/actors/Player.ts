@@ -50,6 +50,57 @@ class Player extends BaseActor {
         });
 
         this.keys = new CustomKeyboardInput(scene);
+
+        this.setSize(23, 32);
+        //this.anims.play("player_idle", true);
+    }
+
+    public update(): void {
+        this.handleKeyboardInput();
+        //this.animations();
+    }
+
+    private handleKeyboardInput(): void {
+        this.setVelocity(0);
+
+        if (this.keys.shift.isDown) {
+            if (this.keys.left.isDown || this.keys.a.isDown) {
+                this.setVelocityX(-this.runSpeed);
+            } else if (this.keys.right.isDown || this.keys.d.isDown) {
+                this.setVelocityX(this.runSpeed);
+            }
+
+            this.body.velocity.normalize().scale(this.runSpeed);
+
+        } else {
+            if (this.keys.left.isDown || this.keys.a.isDown) {
+                this.setVelocityX(-this.walkSpeed);
+            } else if (this.keys.right.isDown || this.keys.d.isDown) {
+                this.setVelocityX(this.walkSpeed);
+            }  
+
+            this.body.velocity.normalize().scale(this.walkSpeed);
+        }
+    }
+
+    private animations() {
+        if (this.keys.shift.isDown && (this.keys.a.isDown || this.keys.left.isDown || this.keys.d.isDown || this.keys.right.isDown)) {
+            this.anims.play("player_run", true);
+        } else if (this.keys.a.isDown || this.keys.left.isDown || this.keys.d.isDown || this.keys.right.isDown) {
+            this.anims.play("player_run", true);
+        } else {
+            if (this.anims.isPlaying) {
+                this.anims.stop();
+            }
+            this.anims.play("player_idle", true);
+        }
+
+        if (this.keys.a.isDown || this.keys.left.isDown) {
+            this.scaleX = -1;
+        } else {
+            this.scaleX = 1;
+            this.setOffset(10, 28)
+        }
     }
 }
 
