@@ -27,7 +27,7 @@ class Level3 extends Phaser.Scene {
 
         let spawnPoint: any = this.map.findObject("objects", (obj) => obj.name == "Start")
 
-        this.player = new Player(this, spawnPoint.x, spawnPoint.y - 20).setDepth(7);
+        this.player = new Player(this, spawnPoint.x, spawnPoint.y - 18).setDepth(7);
         this.add.existing(this.player);
 
     }

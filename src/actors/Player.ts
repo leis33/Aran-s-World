@@ -90,9 +90,6 @@ class Player extends BaseActor {
         } else if (this.keys.a.isDown || this.keys.left.isDown || this.keys.d.isDown || this.keys.right.isDown) {
             this.anims.play("player_run", true);
         } else {
-            if (this.anims.isPlaying) {
-                this.anims.stop();
-            }
             this.anims.play("player_idle", true);
         }
 
