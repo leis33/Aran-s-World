@@ -11,10 +11,12 @@ class Player extends BaseActor {
         this.scene.anims.create({
             key: animsKey,
             frames: this.scene.anims.generateFrameNames(texture),
-            frameRate: 10
+            frameRate: 10,
+            repeat: -1
         });
-    }
 
+        this.anims.play(animsKey, true);
+    }
 }
 
 export { Player }
