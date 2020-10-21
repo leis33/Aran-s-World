@@ -30,6 +30,13 @@ class Level3 extends Phaser.Scene {
         this.player = new Player(this, spawnPoint.x, spawnPoint.y - 18).setDepth(7);
         this.add.existing(this.player);
 
+        this.cameras.main.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
+        this.physics.world.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
+        this.cameras.main.startFollow(this.player);
+
+        this.physics.add.collider(this.player, foregroundLayer1);
+        foregroundLayer1.setCollisionByProperty({ collides: true });
+
     }
 
     update() {
