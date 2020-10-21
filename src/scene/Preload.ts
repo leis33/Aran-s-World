@@ -10,7 +10,7 @@ class Preload extends Phaser.Scene {
         this.load.on("complete", this.onComplete, this);
 
         this.load.image("tiles3", "./assets/level3/tiles.png");
-        this.load.image("backgroud3", "./assets/level3/background.png");
+        this.load.image("background3", "./assets/level3/background.png");
         this.load.tilemapTiledJSON("level3", "./assets/level3/level3.json");
 
         //enemies
@@ -36,7 +36,7 @@ class Preload extends Phaser.Scene {
     private onComplete(): void {
         console.log("load complete");
 
-        this.scene.start("main");
+        this.scene.start("level3");
     }
 }
 

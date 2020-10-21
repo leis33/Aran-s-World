@@ -1,5 +1,8 @@
+import { Player } from "../actors/Player";
+
 class Level3 extends Phaser.Scene {
     private map: Phaser.Tilemaps.Tilemap;
+    private player: Player;
 
     constructor() {
         super("level3");
@@ -14,14 +17,23 @@ class Level3 extends Phaser.Scene {
         let backgroundLayer1: Phaser.Tilemaps.StaticTilemapLayer = this.map.createStaticLayer("background1", [backgroundTileSet]).setDepth(0);
         let backgroundLayer2: Phaser.Tilemaps.StaticTilemapLayer = this.map.createStaticLayer("background2", [backgroundTileSet]).setDepth(1);
         let backgroundLayer3: Phaser.Tilemaps.StaticTilemapLayer = this.map.createStaticLayer("background3", [backgroundTileSet]).setDepth(2);
-        let backgroundLayer4: Phaser.Tilemaps.StaticTilemapLayer = this.map.createStaticLayer("background5", [backgroundTileSet]).setDepth(3);
-        let backgroundLayer5: Phaser.Tilemaps.StaticTilemapLayer = this.map.createStaticLayer("background4", [backgroundTileSet]).setDepth(4);
+        let backgroundLayer4: Phaser.Tilemaps.StaticTilemapLayer = this.map.createStaticLayer("background5", [tileSet]).setDepth(3);
+        let backgroundLayer5: Phaser.Tilemaps.StaticTilemapLayer = this.map.createStaticLayer("background4", [tileSet]).setDepth(4);
 
-        let foregroundLayer1: Phaser.Tilemaps.StaticTilemapLayer = this.map.createStaticLayer("foreground1", [backgroundTileSet]).setDepth(6);
-        let foregroundLayer2: Phaser.Tilemaps.StaticTilemapLayer = this.map.createStaticLayer("foreground2", [backgroundTileSet]).setDepth(5);
+        let foregroundLayer1: Phaser.Tilemaps.StaticTilemapLayer = this.map.createStaticLayer("foreground1", [tileSet]).setDepth(6);
+        let foregroundLayer2: Phaser.Tilemaps.StaticTilemapLayer = this.map.createStaticLayer("foreground2", [tileSet]).setDepth(5);
 
         let objectLayer: Phaser.Tilemaps.ObjectLayer = this.map.getObjectLayer("objects");
 
+        let spawnPoint: any = this.map.findObject("objects", (obj) => obj.name == "Start")
+
+        this.player = new Player(this, spawnPoint.x, spawnPoint.y - 20).setDepth(7);
+        this.add.existing(this.player);
+
+    }
+
+    update() {
+        this.player.update();
     }
 }
 

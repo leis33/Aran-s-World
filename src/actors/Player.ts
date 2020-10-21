@@ -16,7 +16,8 @@ class Player extends BaseActor {
         this.scene.anims.create({
             key: "player_idle",
             frames: this.scene.anims.generateFrameNames("player", { prefix: "idle", start: 1, end: 9 }),
-            frameRate: 10
+            frameRate: 10,
+            repeat: -1
         });
 
         this.scene.anims.create({
