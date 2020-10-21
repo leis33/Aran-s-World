@@ -57,7 +57,7 @@ class Player extends BaseActor {
 
     public update(): void {
         this.handleKeyboardInput();
-        //this.animations();
+        this.animations();
     }
 
     private handleKeyboardInput(): void {
@@ -97,6 +97,7 @@ class Player extends BaseActor {
 
         if (this.keys.a.isDown || this.keys.left.isDown) {
             this.scaleX = -1;
+            this.setOffset(32, 28)
         } else {
             this.scaleX = 1;
             this.setOffset(10, 28)

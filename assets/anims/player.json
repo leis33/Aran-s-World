@@ -1,7 +1,7 @@
 {"frames": [
 
 {
-	"filename": "Attack1.png",
+	"filename": "Attack1",
 	"frame": {"x":0,"y":0,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
@@ -9,7 +9,7 @@
 	"sourceSize": {"w":64,"h":64}
 },
 {
-	"filename": "Attack2.png",
+	"filename": "Attack2",
 	"frame": {"x":64,"y":0,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
@@ -17,7 +17,7 @@
 	"sourceSize": {"w":64,"h":64}
 },
 {
-	"filename": "Attack3.png",
+	"filename": "Attack3",
 	"frame": {"x":0,"y":64,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
@@ -25,7 +25,7 @@
 	"sourceSize": {"w":64,"h":64}
 },
 {
-	"filename": "Attack4.png",
+	"filename": "Attack4",
 	"frame": {"x":64,"y":64,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
@@ -33,7 +33,7 @@
 	"sourceSize": {"w":64,"h":64}
 },
 {
-	"filename": "Attack5.png",
+	"filename": "Attack5",
 	"frame": {"x":0,"y":128,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
@@ -41,7 +41,7 @@
 	"sourceSize": {"w":64,"h":64}
 },
 {
-	"filename": "Attack6.png",
+	"filename": "Attack6",
 	"frame": {"x":64,"y":128,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
@@ -49,7 +49,7 @@
 	"sourceSize": {"w":64,"h":64}
 },
 {
-	"filename": "Attack7.png",
+	"filename": "Attack7",
 	"frame": {"x":0,"y":192,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
@@ -57,7 +57,7 @@
 	"sourceSize": {"w":64,"h":64}
 },
 {
-	"filename": "death1.png",
+	"filename": "death1",
 	"frame": {"x":64,"y":192,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
@@ -65,7 +65,7 @@
 	"sourceSize": {"w":64,"h":64}
 },
 {
-	"filename": "death2.png",
+	"filename": "death2",
 	"frame": {"x":0,"y":256,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
@@ -73,7 +73,7 @@
 	"sourceSize": {"w":64,"h":64}
 },
 {
-	"filename": "death3.png",
+	"filename": "death3",
 	"frame": {"x":64,"y":256,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
@@ -81,7 +81,7 @@
 	"sourceSize": {"w":64,"h":64}
 },
 {
-	"filename": "death4.png",
+	"filename": "death4",
 	"frame": {"x":0,"y":320,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
@@ -89,7 +89,7 @@
 	"sourceSize": {"w":64,"h":64}
 },
 {
-	"filename": "death5.png",
+	"filename": "death5",
 	"frame": {"x":64,"y":320,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
@@ -97,7 +97,7 @@
 	"sourceSize": {"w":64,"h":64}
 },
 {
-	"filename": "hit1.png",
+	"filename": "hit1",
 	"frame": {"x":0,"y":384,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
@@ -105,7 +105,7 @@
 	"sourceSize": {"w":64,"h":64}
 },
 {
-	"filename": "hit2.png",
+	"filename": "hit2",
 	"frame": {"x":64,"y":384,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
@@ -113,7 +113,7 @@
 	"sourceSize": {"w":64,"h":64}
 },
 {
-	"filename": "hit3.png",
+	"filename": "hit3",
 	"frame": {"x":0,"y":448,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
@@ -121,7 +121,7 @@
 	"sourceSize": {"w":64,"h":64}
 },
 {
-	"filename": "idle1.png",
+	"filename": "idle1",
 	"frame": {"x":64,"y":448,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
@@ -129,7 +129,7 @@
 	"sourceSize": {"w":64,"h":64}
 },
 {
-	"filename": "idle2.png",
+	"filename": "idle2",
 	"frame": {"x":0,"y":512,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
@@ -137,7 +137,7 @@
 	"sourceSize": {"w":64,"h":64}
 },
 {
-	"filename": "idle3.png",
+	"filename": "idle3",
 	"frame": {"x":64,"y":512,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
@@ -145,7 +145,7 @@
 	"sourceSize": {"w":64,"h":64}
 },
 {
-	"filename": "idle4.png",
+	"filename": "idle4",
 	"frame": {"x":0,"y":576,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
@@ -153,7 +153,7 @@
 	"sourceSize": {"w":64,"h":64}
 },
 {
-	"filename": "idle5.png",
+	"filename": "idle5",
 	"frame": {"x":64,"y":576,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
@@ -161,7 +161,7 @@
 	"sourceSize": {"w":64,"h":64}
 },
 {
-	"filename": "idle6.png",
+	"filename": "idle6",
 	"frame": {"x":0,"y":640,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
@@ -169,7 +169,7 @@
 	"sourceSize": {"w":64,"h":64}
 },
 {
-	"filename": "idle7.png",
+	"filename": "idle7",
 	"frame": {"x":64,"y":640,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
@@ -177,7 +177,7 @@
 	"sourceSize": {"w":64,"h":64}
 },
 {
-	"filename": "idle8.png",
+	"filename": "idle8",
 	"frame": {"x":0,"y":704,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
@@ -185,7 +185,7 @@
 	"sourceSize": {"w":64,"h":64}
 },
 {
-	"filename": "idle9.png",
+	"filename": "idle9",
 	"frame": {"x":64,"y":704,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
@@ -193,7 +193,7 @@
 	"sourceSize": {"w":64,"h":64}
 },
 {
-	"filename": "jump1.png",
+	"filename": "jump1",
 	"frame": {"x":0,"y":768,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
@@ -201,7 +201,7 @@
 	"sourceSize": {"w":64,"h":64}
 },
 {
-	"filename": "jump2.png",
+	"filename": "jump2",
 	"frame": {"x":64,"y":768,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
@@ -209,7 +209,7 @@
 	"sourceSize": {"w":64,"h":64}
 },
 {
-	"filename": "jump3.png",
+	"filename": "jump3",
 	"frame": {"x":0,"y":832,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
@@ -217,7 +217,7 @@
 	"sourceSize": {"w":64,"h":64}
 },
 {
-	"filename": "jump4.png",
+	"filename": "jump4",
 	"frame": {"x":64,"y":832,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
@@ -225,7 +225,7 @@
 	"sourceSize": {"w":64,"h":64}
 },
 {
-	"filename": "jump5.png",
+	"filename": "jump5",
 	"frame": {"x":0,"y":896,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
@@ -233,7 +233,7 @@
 	"sourceSize": {"w":64,"h":64}
 },
 {
-	"filename": "jump6.png",
+	"filename": "jump6",
 	"frame": {"x":64,"y":896,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
@@ -241,7 +241,7 @@
 	"sourceSize": {"w":64,"h":64}
 },
 {
-	"filename": "jump7.png",
+	"filename": "jump7",
 	"frame": {"x":0,"y":960,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
@@ -249,7 +249,7 @@
 	"sourceSize": {"w":64,"h":64}
 },
 {
-	"filename": "run1.png",
+	"filename": "run1",
 	"frame": {"x":64,"y":960,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
@@ -257,7 +257,7 @@
 	"sourceSize": {"w":64,"h":64}
 },
 {
-	"filename": "run2.png",
+	"filename": "run2",
 	"frame": {"x":0,"y":1024,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
@@ -265,7 +265,7 @@
 	"sourceSize": {"w":64,"h":64}
 },
 {
-	"filename": "run3.png",
+	"filename": "run3",
 	"frame": {"x":64,"y":1024,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
@@ -273,7 +273,7 @@
 	"sourceSize": {"w":64,"h":64}
 },
 {
-	"filename": "run4.png",
+	"filename": "run4",
 	"frame": {"x":0,"y":1088,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
@@ -281,7 +281,7 @@
 	"sourceSize": {"w":64,"h":64}
 },
 {
-	"filename": "run5.png",
+	"filename": "run5",
 	"frame": {"x":64,"y":1088,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
@@ -289,7 +289,7 @@
 	"sourceSize": {"w":64,"h":64}
 },
 {
-	"filename": "run6.png",
+	"filename": "run6",
 	"frame": {"x":0,"y":1152,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
@@ -297,7 +297,7 @@
 	"sourceSize": {"w":64,"h":64}
 },
 {
-	"filename": "run7.png",
+	"filename": "run7",
 	"frame": {"x":64,"y":1152,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
@@ -305,7 +305,7 @@
 	"sourceSize": {"w":64,"h":64}
 },
 {
-	"filename": "run8.png",
+	"filename": "run8",
 	"frame": {"x":0,"y":1216,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,

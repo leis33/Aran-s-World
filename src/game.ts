@@ -1,6 +1,7 @@
 import 'phaser';
 import { Preload } from './scene/Preload';
 import { Main } from './scene/Main';
+import { Level3 } from './scene/level3';
 
 class GameApp extends Phaser.Game {
     public static gameConfig: Phaser.Types.Core.GameConfig = null;
@@ -21,7 +22,7 @@ class GameApp extends Phaser.Game {
                         debug: true
                     }
                 },
-                scene: [Preload, Main]
+                scene: [Preload, Main, Level3]
             };
         }
 

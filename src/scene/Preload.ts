@@ -9,6 +9,10 @@ class Preload extends Phaser.Scene {
         this.load.on("load", this.onFileLoaded, this);
         this.load.on("complete", this.onComplete, this);
 
+        this.load.image("tiles3", "./assets/level3/tiles.png");
+        this.load.image("backgroud3", "./assets/level3/background.png");
+        this.load.tilemapTiledJSON("level3", "./assets/level3/level3.json");
+
         //enemies
         this.load.spritesheet("enemy1", "./assets/anims/enemy1.png", {frameWidth: 32, frameHeight: 32});
         this.load.spritesheet("enemy2", "./assets/anims/enemy2.png", {frameWidth: 64, frameHeight: 64});
