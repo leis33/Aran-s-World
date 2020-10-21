@@ -1,6 +1,6 @@
 import { BaseActor } from "./BaseActor";
 
-class Player extends BaseActor {
+class Enemy extends BaseActor {
     private readonly hp: number = 1;
 
     constructor(scene: Phaser.Scene, x: number, y: number, texture: string, animsKey: string) {
@@ -19,4 +19,4 @@ class Player extends BaseActor {
     }
 }
 
-export { Player }
+export { Enemy }

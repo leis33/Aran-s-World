@@ -1,8 +1,13 @@
 import { Player } from "../actors/Player";
+import { Enemy } from "../actors/Enemy";
 
 class Level3 extends Phaser.Scene {
     private map: Phaser.Tilemaps.Tilemap;
     private player: Player;
+    private enemies2: Enemy[];
+    private enemies3: Enemy[];
+    private enemy4: Enemy;
+
 
     constructor() {
         super("level3");
@@ -36,6 +41,25 @@ class Level3 extends Phaser.Scene {
 
         this.physics.add.collider(this.player, foregroundLayer1);
         foregroundLayer1.setCollisionByProperty({ collides: true });
+
+        this.anims.create({
+            key:"enemy3_idle",
+            frames: this.anims.generateFrameNames("enemy3"),
+            frameRate: 10,
+            repeat: -1
+        });
+
+        let enemies3: Phaser.GameObjects.Sprite[] = this.map.createFromObjects("objects", 1796, {key: "enemy3"})
+        for (let enemy of enemies3) {
+            this.add.existing(enemy);
+            this.physics.add.existing(enemy);  
+                     
+            enemy.setDepth(8);
+            enemy.anims.play("enemy3_idle", true);
+            (<Phaser.Physics.Arcade.Body>enemy.body).setImmovable(true);
+
+            this.physics.add.collider(this.player, enemy);
+        }
 
     }
 
