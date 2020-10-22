@@ -88,8 +88,8 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":210.666666666667,
-                 "y":628.666666666667
+                 "x":210.667,
+                 "y":628.667
                 }, 
                 {
                  "height":0,
@@ -100,8 +100,8 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":3030.66666666667,
-                 "y":645.333333333333
+                 "x":3030.67,
+                 "y":645.333
                 }, 
                 {
                  "gid":2599,
@@ -112,7 +112,7 @@
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":448.666666666667,
+                 "x":448.667,
                  "y":352
                 }, 
                 {
@@ -124,8 +124,8 @@
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":2464.66666666667,
-                 "y":512.666666666667
+                 "x":2464.67,
+                 "y":512.667
                 }, 
                 {
                  "gid":2599,
@@ -136,8 +136,8 @@
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":2686.66666666667,
-                 "y":578.666666666667
+                 "x":2686.67,
+                 "y":578.667
                 }, 
                 {
                  "gid":2603,
@@ -161,7 +161,7 @@
                  "visible":true,
                  "width":32,
                  "x":1696,
-                 "y":608.666666666667
+                 "y":608.667
                 }, 
                 {
                  "gid":2603,
@@ -172,8 +172,8 @@
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":2017.33333333333,
-                 "y":481.333333333333
+                 "x":2017.33,
+                 "y":481.333
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -189,20 +189,56 @@
  "tileheight":32,
  "tilesets":[
         {
+         "columns":32,
          "firstgid":1,
-         "source":"PSD\/background_day1.tsx"
+         "image":"background_day1.png",
+         "imageheight":640,
+         "imagewidth":1024,
+         "margin":0,
+         "name":"background_day1",
+         "spacing":0,
+         "tilecount":640,
+         "tileheight":32,
+         "tilewidth":32
         }, 
         {
+         "columns":32,
          "firstgid":641,
-         "source":"PSD\/background_day2.tsx"
+         "image":"background_day2.png",
+         "imageheight":640,
+         "imagewidth":1024,
+         "margin":0,
+         "name":"background_day2",
+         "spacing":0,
+         "tilecount":640,
+         "tileheight":32,
+         "tilewidth":32
         }, 
         {
+         "columns":32,
          "firstgid":1281,
-         "source":"PSD\/background_day3.tsx"
+         "image":"background_day3.png",
+         "imageheight":640,
+         "imagewidth":1024,
+         "margin":0,
+         "name":"background_day3",
+         "spacing":0,
+         "tilecount":640,
+         "tileheight":32,
+         "tilewidth":32
         }, 
         {
+         "columns":32,
          "firstgid":1921,
-         "source":"PSD\/background_night1.tsx"
+         "image":"background_night1.png",
+         "imageheight":640,
+         "imagewidth":1024,
+         "margin":0,
+         "name":"background_night1",
+         "spacing":0,
+         "tilecount":640,
+         "tileheight":32,
+         "tilewidth":32
         }, 
         {
          "columns":32,
@@ -525,8 +561,17 @@
          "tilewidth":32
         }, 
         {
+         "columns":16,
          "firstgid":3585,
-         "source":"PSD\/decorative.tsx"
+         "image":"decorative.png",
+         "imageheight":512,
+         "imagewidth":512,
+         "margin":0,
+         "name":"decorative",
+         "spacing":0,
+         "tilecount":256,
+         "tileheight":32,
+         "tilewidth":32
         }],
  "tilewidth":32,
  "type":"map",
