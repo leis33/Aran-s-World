@@ -251,10 +251,10 @@
   <object id="23" gid="1799" x="1952" y="352" width="32" height="32"/>
   <object id="24" gid="1799" x="736" y="736" width="32" height="32"/>
   <object id="25" gid="1802" x="2624" y="544" width="32" height="32"/>
-  <object id="19" name="Start" x="237" y="469">
+  <object id="19" name="Start" x="224" y="448">
    <point/>
   </object>
-  <object id="20" name="Finish" x="3118" y="536">
+  <object id="20" name="Finish" x="3136" y="512">
    <point/>
   </object>
  </objectgroup>
