@@ -2,6 +2,7 @@ import 'phaser';
 import { Preload } from './scene/Preload';
 import { Main } from './scene/Main';
 import { Level3 } from './scene/level3';
+import { Level2 } from './scene/Level2';
 
 class GameApp extends Phaser.Game {
     public static gameConfig: Phaser.Types.Core.GameConfig = null;
@@ -16,13 +17,17 @@ class GameApp extends Phaser.Game {
                 backgroundColor: '#0e2952',
                 width: 1024,
                 height: 512,
+                scale: {
+                    mode: Phaser.Scale.FIT,
+                    autoCenter: Phaser.Scale.CENTER_BOTH,
+                },
                 physics: {
                     default: "arcade",
                     arcade: {
                         debug: true
                     }
                 },
-                scene: [Preload, Main, Level3]
+                scene: [Preload, Main, Level2]
             };
         }
 

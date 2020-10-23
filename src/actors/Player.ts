@@ -78,8 +78,11 @@ class Player extends BaseActor {
                 this.setVelocityX(-this.walkSpeed);
             } else if (this.keys.right.isDown || this.keys.d.isDown) {
                 this.setVelocityX(this.walkSpeed);
-            }  
-
+            }  else if (this.keys.up.isDown || this.keys.w.isDown) {
+                this.setVelocityY(-100);
+            } else if (this.keys.down.isDown || this.keys.s.isDown) {
+                this.setVelocityY(100);
+            }
             this.body.velocity.normalize().scale(this.walkSpeed);
         }
     }
