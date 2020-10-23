@@ -58,7 +58,6 @@ class Player extends BaseActor {
         this.keys.escape.on("down", this.onEscPress, this);
 
         this.setSize(23, 32);
-        //this.anims.play("player_idle", true);
     }
 
     public update(): void {
@@ -89,18 +88,12 @@ class Player extends BaseActor {
                 this.setVelocityX(-this.walkSpeed);
             } else if (this.keys.right.isDown || this.keys.d.isDown) {
                 this.setVelocityX(this.walkSpeed);
-            }  else if (this.keys.up.isDown || this.keys.w.isDown) {
-                this.setVelocityY(-100);
-            } else if (this.keys.down.isDown || this.keys.s.isDown) {
-                this.setVelocityY(100);
-            } else if (this.keys.space.isDown){
-                this.setVelocityY(-100);
             }
             this.body.velocity.normalize().scale(this.walkSpeed);
         }
 
         this.keys.space.on("down", () => {
-            this.body.velocity.y = -1000;
+            this.body.velocity.y = -3000;
             this.anims.play("player_jump", true);
             this.jump();
         });
@@ -130,28 +123,16 @@ class Player extends BaseActor {
     }
 
     private attack(): void {
-        
+
         this.keys.z.on("down", () => {
             this.anims.play("player_attack", true);
             console.log("neshto");
         });
     }
 
-     private jump(): void {
-        /* let tween: Phaser.Tweens.Tween = this.scene.tweens.add({
-            targets: this
-        });
-        */
-        /* if (this.keys.space.isDown && this.body.touching.down) {
-            this.body.velocity.y = -1000;
-        }  */
+    private jump(): void {
 
-        /* this.keys.space.on("down", () => {
-            this.setVelocityY(-6000);
-            this.anims.play("player_jump", true);
-            this.jump();
-        }); */
-    } 
+    }
 }
 
 export { Player }

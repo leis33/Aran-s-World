@@ -59,8 +59,6 @@ class BaseButton extends Phaser.GameObjects.Container {
         this.scene.tweens.remove(this.tween);
     }
 
-    
-
     public enable(status: boolean): void {
         if (status) {
             this.sprite.setInteractive();

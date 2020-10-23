@@ -6,7 +6,7 @@ class Level3 extends Phaser.Scene {
     private map: Phaser.Tilemaps.Tilemap;
     private player: Player;
     private keys: CustomKeyboardInput;
-    
+
     constructor() {
         super("level3");
     }
@@ -35,12 +35,10 @@ class Level3 extends Phaser.Scene {
     }
 
     create() {
-<<<<<<< HEAD
         this.cameras.main.fadeIn(800);
-=======
+
         this.keys = new CustomKeyboardInput(this);
 
->>>>>>> 6fed82fc29553d3bfe4adf081652497306bf828c
         this.map = this.make.tilemap({ key: "level3" });
 
         let tileSet: Phaser.Tilemaps.Tileset = this.map.addTilesetImage("tiles", "tiles3");
@@ -70,7 +68,7 @@ class Level3 extends Phaser.Scene {
         foregroundLayer1.setCollisionByProperty({ collides: true });
 
         //TODO: fix enemies' hitboxes
-        let enemies3: Phaser.GameObjects.Sprite[] = this.map.createFromObjects("objects", 1796, {key: "enemy3"})
+        let enemies3: Phaser.GameObjects.Sprite[] = this.map.createFromObjects("objects", 1796, { key: "enemy3" })
         for (let enemy of enemies3) {
             this.add.existing(enemy);
             this.physics.add.existing(enemy);
@@ -83,7 +81,7 @@ class Level3 extends Phaser.Scene {
             this.physics.add.collider(this.player, enemy);
         }
 
-        let enemies2: Phaser.GameObjects.Sprite[] = this.map.createFromObjects("objects", 1799, {key: "enemy2"})
+        let enemies2: Phaser.GameObjects.Sprite[] = this.map.createFromObjects("objects", 1799, { key: "enemy2" })
         for (let enemy of enemies2) {
             this.add.existing(enemy);
             this.physics.add.existing(enemy);
@@ -96,7 +94,7 @@ class Level3 extends Phaser.Scene {
             this.physics.add.collider(this.player, enemy);
         }
 
-        let enemies4: Phaser.GameObjects.Sprite[] = this.map.createFromObjects("objects", 1802, {key: "enemy4"})
+        let enemies4: Phaser.GameObjects.Sprite[] = this.map.createFromObjects("objects", 1802, { key: "enemy4" })
         for (let enemy of enemies4) {
             this.add.existing(enemy);
             this.physics.add.existing(enemy);

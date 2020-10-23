@@ -8,26 +8,26 @@ class Level2 extends Phaser.Scene {
     private enemy: Enemy;
     private pauseButton: BaseButton;
     public sceneName: string = "level2";
-    constructor(){
+    constructor() {
         super("level2");
     }
 
-    create(){
-    
+    create() {
+
         this.cameras.main.fadeIn(800);
-        this.map = this.make.tilemap({key: "level2", tileWidth: 32, tileHeight: 32});
+        this.map = this.make.tilemap({ key: "level2", tileWidth: 32, tileHeight: 32 });
 
         let background1: Phaser.Tilemaps.Tileset = this.map.addTilesetImage("background1", "background1");
         let background2: Phaser.Tilemaps.Tileset = this.map.addTilesetImage("background2", "background2");
         let background3: Phaser.Tilemaps.Tileset = this.map.addTilesetImage("background3", "background4");
-        let worldTileset: Phaser.Tilemaps.Tileset = this.map.addTilesetImage("rockyworld_tileset","tiles1");
+        let worldTileset: Phaser.Tilemaps.Tileset = this.map.addTilesetImage("rockyworld_tileset", "tiles1");
         let treesTileset: Phaser.Tilemaps.Tileset = this.map.addTilesetImage("rockytrees_tileset", "tiles2");
 
         let Background1Layer: Phaser.Tilemaps.StaticTilemapLayer = this.map.createStaticLayer("Background 1", background1).setDepth(0);
         let Background2Layer: Phaser.Tilemaps.StaticTilemapLayer = this.map.createStaticLayer("Background 2", background2).setDepth(1);
         let Background3Layer: Phaser.Tilemaps.StaticTilemapLayer = this.map.createStaticLayer("Background 3", background3).setDepth(2);
         let TreeLayer1: Phaser.Tilemaps.StaticTilemapLayer = this.map.createStaticLayer("Tree Layer", worldTileset).setDepth(3);
-        let TileLayer: Phaser.Tilemaps.StaticTilemapLayer = this.map.createStaticLayer("Tile Layer 1",worldTileset).setDepth(4);
+        let TileLayer: Phaser.Tilemaps.StaticTilemapLayer = this.map.createStaticLayer("Tile Layer 1", worldTileset).setDepth(4);
         let TreeLayer2: Phaser.Tilemaps.StaticTilemapLayer = this.map.createStaticLayer("Tree Layer 2", [treesTileset, worldTileset]).setDepth(5);
         let MainLayer: Phaser.Tilemaps.StaticTilemapLayer = this.map.createStaticLayer("Main Layer", worldTileset).setDepth(6);
         let ObjectLayer: Phaser.Tilemaps.ObjectLayer = this.map.getObjectLayer("Object Layer 1");
@@ -40,13 +40,13 @@ class Level2 extends Phaser.Scene {
         TreeLayer2.setScale(0.7);
         MainLayer.setScale(0.7);
 
-        let spawnPoint: any = this.map.findObject(ObjectLayer,(obj) => obj.name == "Start");
+        let spawnPoint: any = this.map.findObject(ObjectLayer, (obj) => obj.name == "Start");
 
-        this.player = new Player(this, spawnPoint.x, spawnPoint.y-129).setDepth(7);
+        this.player = new Player(this, spawnPoint.x, spawnPoint.y - 129).setDepth(7);
         this.add.existing(this.player);
 
-        this.cameras.main.setBounds(0, 0, this.map.widthInPixels-970, this.map.heightInPixels-300);
-        this.physics.world.setBounds(0, 0, this.map.widthInPixels-970, this.map.heightInPixels-300);
+        this.cameras.main.setBounds(0, 0, this.map.widthInPixels - 970, this.map.heightInPixels - 300);
+        this.physics.world.setBounds(0, 0, this.map.widthInPixels - 970, this.map.heightInPixels - 300);
         this.cameras.main.startFollow(this.player);
 
         this.physics.add.collider(this.player, MainLayer);
@@ -54,28 +54,28 @@ class Level2 extends Phaser.Scene {
 
         this.player.emitter.on("escPressed", this.onEscPressed, this);
 
-        this.pauseButton = new BaseButton(this, 980, 30,"optionbuttons", 1, "", 4);
+        this.pauseButton = new BaseButton(this, 980, 30, "optionbuttons", 1, "", 4);
         this.pauseButton.setDepth(8);
-        this.pauseButton.setOnClick(this.pauseButtonOnClick,this)
+        this.pauseButton.setOnClick(this.pauseButtonOnClick, this)
         this.add.existing(this.pauseButton);
-        
+
     }
 
-    update(){
+    update() {
         this.player.update();
     }
 
-    private pauseButtonOnClick(){
+    private pauseButtonOnClick() {
         this.scene.pause();
-        this.scene.launch("ingamemenu");  
+        this.scene.launch("ingameMenu");
     }
 
     private onEscPressed(): void {
         this.scene.pause();
-        this.scene.launch("ingamemenu");
+        this.scene.launch("ingameMenu");
     }
 
-    private getSceneName(){
+    private getSceneName() {
         return this.sceneName;
     }
 
