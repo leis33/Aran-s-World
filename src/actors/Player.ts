@@ -7,6 +7,8 @@ class Player extends BaseActor {
     private readonly hp: number = 3;
 
     private keys: CustomKeyboardInput;
+    public emitter: Phaser.Events.EventEmitter;
+
 
     constructor(scene: Phaser.Scene, x: number, y: number) {
         super(scene, x, y, "player");
@@ -49,8 +51,11 @@ class Player extends BaseActor {
             frames: this.scene.anims.generateFrameNames("player", { prefix: "run", start: 1, end: 8 }),
             frameRate: 10
         });
+        this.emitter = new Phaser.Events.EventEmitter();
 
         this.keys = new CustomKeyboardInput(scene);
+
+        this.keys.escape.on("down", this.onEscPress, this);
 
         this.setSize(23, 32);
         //this.anims.play("player_idle", true);
@@ -59,6 +64,10 @@ class Player extends BaseActor {
     public update(): void {
         this.handleKeyboardInput();
         this.animations();
+    }
+
+    private onEscPress(): void {
+        this.emitter.emit("escPressed");
     }
 
     private handleKeyboardInput(): void {

@@ -14,6 +14,7 @@ class Level3 extends Phaser.Scene {
     }
 
     create() {
+        this.cameras.main.fadeIn(800);
         this.map = this.make.tilemap({ key: "level3" });
 
         let tileSet: Phaser.Tilemaps.Tileset = this.map.addTilesetImage("tiles", "tiles3");

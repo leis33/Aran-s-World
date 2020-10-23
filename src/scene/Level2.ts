@@ -1,16 +1,22 @@
 import { Player } from "../actors/Player";
 import { Enemy } from "../actors/Enemy";
+import { BaseButton } from "../graphics/BaseButton";
 
 class Level2 extends Phaser.Scene {
     private map: Phaser.Tilemaps.Tilemap;
     private player: Player;
     private enemy: Enemy;
+    private pauseButton: BaseButton;
+    public sceneName: string = "level2";
     constructor(){
         super("level2");
     }
 
     create(){
+    
+        this.cameras.main.fadeIn(800);
         this.map = this.make.tilemap({key: "level2", tileWidth: 32, tileHeight: 32});
+
         let background1: Phaser.Tilemaps.Tileset = this.map.addTilesetImage("background1", "background1");
         let background2: Phaser.Tilemaps.Tileset = this.map.addTilesetImage("background2", "background2");
         let background3: Phaser.Tilemaps.Tileset = this.map.addTilesetImage("background3", "background4");
@@ -45,11 +51,32 @@ class Level2 extends Phaser.Scene {
 
         this.physics.add.collider(this.player, MainLayer);
         MainLayer.setCollisionByProperty({ collides: true });
+
+        this.player.emitter.on("escPressed", this.onEscPressed, this);
+
+        this.pauseButton = new BaseButton(this, 980, 30,"optionbuttons", 1, "", 4);
+        this.pauseButton.setDepth(8);
+        this.pauseButton.setOnClick(this.pauseButtonOnClick,this)
+        this.add.existing(this.pauseButton);
         
     }
 
     update(){
         this.player.update();
+    }
+
+    private pauseButtonOnClick(){
+        this.scene.pause();
+        this.scene.launch("ingamemenu");  
+    }
+
+    private onEscPressed(): void {
+        this.scene.pause();
+        this.scene.launch("ingamemenu");
+    }
+
+    private getSceneName(){
+        return this.sceneName;
     }
 
 }
