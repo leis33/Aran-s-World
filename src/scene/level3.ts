@@ -1,9 +1,11 @@
 import { Player } from "../actors/Player";
 import { Enemy } from "../actors/Enemy";
+import { CustomKeyboardInput } from "../utils/CustomKeyboardInput";
 
 class Level3 extends Phaser.Scene {
     private map: Phaser.Tilemaps.Tilemap;
     private player: Player;
+    private keys: CustomKeyboardInput;
     
     constructor() {
         super("level3");
@@ -33,6 +35,8 @@ class Level3 extends Phaser.Scene {
     }
 
     create() {
+        this.keys = new CustomKeyboardInput(this);
+
         this.map = this.make.tilemap({ key: "level3" });
 
         let tileSet: Phaser.Tilemaps.Tileset = this.map.addTilesetImage("tiles", "tiles3");
@@ -67,7 +71,6 @@ class Level3 extends Phaser.Scene {
             this.add.existing(enemy);
             this.physics.add.existing(enemy);
 
-            enemy.scaleX = -1;
             enemy.setDepth(7);
 
             enemy.anims.play("enemy3_idle", true);
@@ -81,7 +84,6 @@ class Level3 extends Phaser.Scene {
             this.add.existing(enemy);
             this.physics.add.existing(enemy);
 
-            enemy.scaleX = -1;
             enemy.setDepth(7);
 
             enemy.anims.play("enemy2_idle", true);
@@ -95,7 +97,6 @@ class Level3 extends Phaser.Scene {
             this.add.existing(enemy);
             this.physics.add.existing(enemy);
 
-            enemy.scaleX = -1;
             enemy.setDepth(7);
 
             enemy.anims.play("enemy4_idle", true);
