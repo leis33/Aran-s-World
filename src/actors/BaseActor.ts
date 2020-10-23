@@ -7,7 +7,7 @@ abstract class BaseActor extends Phaser.Physics.Arcade.Sprite {
         this._hitPoints = hp;
         this.scene.physics.add.existing(this);
         this.setCollideWorldBounds(true);
-        this.setGravity(0, 10000);
+        //this.setGravityY(10000);
     }
 
     public get hitPoints(): number {
