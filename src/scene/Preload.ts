@@ -22,11 +22,17 @@ class Preload extends Phaser.Scene {
 
         this.load.atlas("player", "./assets/anims/player.png", "./assets/anims/player.json");
 
+        this.load.image("background_night1", "./assets/Level1/background_day1.png");
+        this.load.image("background_night2", "./assets/Level1/background_day2.png");
+        this.load.image("background_night3", "./assets/Level1/background_day3.png");
         this.load.image("tiles1", "./assets/level2/main_lev_build.png");
         this.load.image("tiles2", "./assets/level2/other_lev_build.png");
         this.load.image("background1", "./assets/level2/bg1.png");
         this.load.image("background2", "./assets/level2/bg2.png");
         this.load.image("background4", "./assets/level2/bg3.png");
+        this.load.image("logo", "./assets/UI/logo.png");
+        this.load.image("startbutton", "./assets/UI/startbutton.png");
+        //this.load.image("startbutton2", "./assets/UI/startbutton2.png");
         this.load.tilemapTiledJSON("level2", "./assets/level2/rockyworld2.json");
         this.load.atlas("enemy1_1", "./assets/anims/enemy1_1.png", "./assets/anims/enemy1_1.json");
         this.load.atlas("enemy3_1", "./assets/anims/enemy3_1.png", "./assets/anims/enemy3_1.json");
@@ -45,7 +51,7 @@ class Preload extends Phaser.Scene {
     private onComplete(): void {
         console.log("load complete");
 
-        this.scene.start("level2");
+        this.scene.start("start");
     }
 }
 

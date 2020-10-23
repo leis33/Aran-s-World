@@ -82,6 +82,8 @@ class Player extends BaseActor {
                 this.setVelocityY(-100);
             } else if (this.keys.down.isDown || this.keys.s.isDown) {
                 this.setVelocityY(100);
+            } else if (this.keys.space.isDown){
+                this.setVelocityY(-100);
             }
             this.body.velocity.normalize().scale(this.walkSpeed);
         }
@@ -95,6 +97,10 @@ class Player extends BaseActor {
         } else {
             this.anims.play("player_idle", true);
         }
+
+        // this.keys.space.on("down", () => {
+        //     this.anims.play("player_jump", true);
+        // })
 
         if (this.keys.a.isDown || this.keys.left.isDown) {
             this.scaleX = -1;

@@ -3,6 +3,7 @@ import { Preload } from './scene/Preload';
 import { Main } from './scene/Main';
 import { Level3 } from './scene/level3';
 import { Level2 } from './scene/Level2';
+import { Start } from './scene/Start';
 
 class GameApp extends Phaser.Game {
     public static gameConfig: Phaser.Types.Core.GameConfig = null;
@@ -14,7 +15,7 @@ class GameApp extends Phaser.Game {
             GameApp.gameConfig = {
                 type: Phaser.AUTO,
                 parent: "content",
-                backgroundColor: '#0e2952',
+                backgroundColor: 'black',
                 width: 1024,
                 height: 512,
                 scale: {
@@ -27,7 +28,7 @@ class GameApp extends Phaser.Game {
                         debug: true
                     }
                 },
-                scene: [Preload, Main, Level2]
+                scene: [Preload, Start,Main, Level2]
             };
         }
 
