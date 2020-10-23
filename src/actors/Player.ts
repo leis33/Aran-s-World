@@ -24,7 +24,7 @@ class Player extends BaseActor {
 
         this.scene.anims.create({
             key: "player_attack",
-            frames: this.scene.anims.generateFrameNames("player", { prefix: "Attack", start: 1, end: 7 }),
+            frames: this.scene.anims.generateFrameNames("player", { prefix: "attack", start: 1, end: 7 }),
             frameRate: 10
         });
 
@@ -64,6 +64,8 @@ class Player extends BaseActor {
     public update(): void {
         this.handleKeyboardInput();
         this.animations();
+        this.attack();
+        this.jump();
     }
 
     private onEscPress(): void {
@@ -96,9 +98,16 @@ class Player extends BaseActor {
             }
             this.body.velocity.normalize().scale(this.walkSpeed);
         }
+
+        this.keys.space.on("down", () => {
+            this.body.velocity.y = -1000;
+            this.anims.play("player_jump", true);
+            this.jump();
+        });
+
     }
 
-    private animations() {
+    private animations(): void {
         if (this.keys.shift.isDown && (this.keys.a.isDown || this.keys.left.isDown || this.keys.d.isDown || this.keys.right.isDown)) {
             this.anims.play("player_run", true);
         } else if (this.keys.a.isDown || this.keys.left.isDown || this.keys.d.isDown || this.keys.right.isDown) {
@@ -119,6 +128,30 @@ class Player extends BaseActor {
             this.setOffset(10, 28)
         }
     }
+
+    private attack(): void {
+        
+        this.keys.z.on("down", () => {
+            this.anims.play("player_attack", true);
+            console.log("neshto");
+        });
+    }
+
+     private jump(): void {
+        /* let tween: Phaser.Tweens.Tween = this.scene.tweens.add({
+            targets: this
+        });
+        */
+        /* if (this.keys.space.isDown && this.body.touching.down) {
+            this.body.velocity.y = -1000;
+        }  */
+
+        /* this.keys.space.on("down", () => {
+            this.setVelocityY(-6000);
+            this.anims.play("player_jump", true);
+            this.jump();
+        }); */
+    } 
 }
 
 export { Player }
