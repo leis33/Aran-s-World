@@ -28,11 +28,7 @@ class GameApp extends Phaser.Game {
                         debug: true
                     }
                 },
-<<<<<<< HEAD
                 scene: [Preload, Start, Level2, Level3, InGameMenu]
-=======
-                scene: [Preload, Start, Level2, InGameMenu, Level3]
->>>>>>> 138a526425dfe6c43e9769c7de7583e53695f5a8
             };
         }
 

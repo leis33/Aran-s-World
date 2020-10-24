@@ -103,7 +103,7 @@ class Level2 extends Phaser.Scene {
         enemy1.setDepth(8);
         this.physics.add.collider(enemy1, MainLayer);
         MainLayer.setCollisionByProperty({ collides: true });
-        this.physics.add.collider(this.player, enemy1);
+        this.physics.add.collider(this.player, enemy1, this.player.onPlayerEnemyCollision, null, this);
         enemy1.setSize(32, 32);
         enemy1.scaleX = -1;
         enemy1.setOffset(32, 0);
@@ -114,7 +114,7 @@ class Level2 extends Phaser.Scene {
         enemy2.setDepth(8);
         this.physics.add.collider(enemy2, MainLayer);
         MainLayer.setCollisionByProperty({ collides: true });
-        this.physics.add.collider(this.player, enemy2);
+        this.physics.add.collider(this.player, enemy2, this.player.onPlayerEnemyCollision, null, this);
         enemy2.setSize(32, 32);
         enemy2.scaleX = -1;
         enemy2.setOffset(32, 0);
@@ -125,10 +125,8 @@ class Level2 extends Phaser.Scene {
         enemy3.setDepth(8);
         this.physics.add.collider(enemy3, MainLayer);
         MainLayer.setCollisionByProperty({ collides: true });
-        this.physics.add.collider(this.player, enemy3);
+        this.physics.add.collider(this.player, enemy3, this.player.onPlayerEnemyCollision, null, this);
         enemy3.setSize(32, 32);
-        enemy3.scaleX = -1;
-        enemy3.setOffset(32, 0);
         (<Phaser.Physics.Arcade.Body>enemy3.body).setImmovable(true);
         this.add.existing(enemy3);
 
@@ -136,8 +134,10 @@ class Level2 extends Phaser.Scene {
         enemy4.setDepth(8);
         this.physics.add.collider(enemy4, MainLayer);
         MainLayer.setCollisionByProperty({ collides: true });
-        this.physics.add.collider(this.player, enemy4);
-        enemy4.setSize(enemy4.width - 20, enemy4.height - 5);
+        this.physics.add.collider(this.player, enemy4, this.player.onPlayerEnemyCollision, null, this);
+        enemy4.flipX = false;
+        enemy4.setSize(43, 46);
+        enemy4.setOffset(0, 14);
         (<Phaser.Physics.Arcade.Body>enemy4.body).setImmovable(true);
         this.add.existing(enemy4);
 
@@ -145,8 +145,9 @@ class Level2 extends Phaser.Scene {
         enemy5.setDepth(8);
         this.physics.add.collider(enemy5, MainLayer);
         MainLayer.setCollisionByProperty({ collides: true });
-        this.physics.add.collider(this.player, enemy5);
-        enemy5.setSize(enemy5.width - 20, enemy5.height - 5);
+        this.physics.add.collider(this.player, enemy5, this.player.onPlayerEnemyCollision, null, this);
+        enemy5.setSize(43, 46);
+        enemy5.setOffset(22, 14);
         (<Phaser.Physics.Arcade.Body>enemy5.body).setImmovable(true);
         this.add.existing(enemy5);
         
@@ -154,10 +155,9 @@ class Level2 extends Phaser.Scene {
         enemy6.setDepth(8);
         this.physics.add.collider(enemy6, MainLayer);
         MainLayer.setCollisionByProperty({ collides: true });
-        this.physics.add.collider(this.player, enemy6);
-        enemy6.setSize(enemy6.width - 30,enemy6.height);
-        enemy6.scaleX = -1;
-        enemy6.setOffset(32, 0);
+        this.physics.add.collider(this.player, enemy6, this.player.onPlayerEnemyCollision, null, this);
+        enemy6.setSize(enemy6.width - 37, enemy6.height);
+        enemy6.setOffset(30, 0);
         (<Phaser.Physics.Arcade.Body>enemy6.body).setImmovable(true);
         this.add.existing(enemy6);
 
