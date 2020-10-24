@@ -81,7 +81,7 @@ class Level3 extends Phaser.Scene {
         let enemy1 = new Enemy(this, 672, 406, "enemy3", "enemy3_idle");
         enemy1.setDepth(7);
         this.physics.add.collider(enemy1, foregroundLayer1);
-        this.physics.add.collider(this.player, enemy1);
+        this.physics.add.collider(this.player, enemy1, this.player.onPlayerEnemyCollision, null, this);
         enemy1.scaleX = -1;
         enemy1.setOffset(32, 0);
         (<Phaser.Physics.Arcade.Body>enemy1.body).setImmovable(true);
@@ -90,35 +90,35 @@ class Level3 extends Phaser.Scene {
         let enemy2 = new Enemy(this, 1248, 630, "enemy3", "enemy3_idle");
         enemy2.setDepth(8);
         this.physics.add.collider(enemy2, foregroundLayer1);
-        this.physics.add.collider(this.player, enemy2);
+        this.physics.add.collider(this.player, enemy2, this.player.onPlayerEnemyCollision, null, this);
         (<Phaser.Physics.Arcade.Body>enemy2.body).setImmovable(true);
         this.add.existing(enemy2);
 
         let enemy3 = new Enemy(this, 1856, 342, "enemy3", "enemy3_idle");
         enemy3.setDepth(8);
         this.physics.add.collider(enemy3, foregroundLayer1);
-        this.physics.add.collider(this.player, enemy3);
+        this.physics.add.collider(this.player, enemy3, this.player.onPlayerEnemyCollision, null, this);
         (<Phaser.Physics.Arcade.Body>enemy3.body).setImmovable(true);
         this.add.existing(enemy3);
 
         let enemy4 = new Enemy(this, 1952, 312, "enemy2", "enemy2_idle");
         enemy4.setDepth(8);
         this.physics.add.collider(enemy4, foregroundLayer1);
-        this.physics.add.collider(this.player, enemy4);
+        this.physics.add.collider(this.player, enemy4, this.player.onPlayerEnemyCollision, null, this);
         (<Phaser.Physics.Arcade.Body>enemy4.body).setImmovable(true);
         this.add.existing(enemy4);
 
         let enemy5 = new Enemy(this, 736, 696, "enemy2", "enemy2_idle");
         enemy5.setDepth(8);
         this.physics.add.collider(enemy5, foregroundLayer1);
-        this.physics.add.collider(this.player, enemy5);
+        this.physics.add.collider(this.player, enemy5, this.player.onPlayerEnemyCollision, null, this);
         (<Phaser.Physics.Arcade.Body>enemy5.body).setImmovable(true);
         this.add.existing(enemy5);
         
         let enemy6 = new Enemy(this, 2624, 504, "enemy4", "enemy4_idle");
         enemy6.setDepth(8);
         this.physics.add.collider(enemy6, foregroundLayer1);
-        this.physics.add.collider(this.player, enemy6);
+        this.physics.add.collider(this.player, enemy6, this.player.onPlayerEnemyCollision, null, this);
         (<Phaser.Physics.Arcade.Body>enemy6.body).setImmovable(true);
         this.add.existing(enemy6);
     }
