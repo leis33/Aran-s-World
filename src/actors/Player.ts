@@ -9,6 +9,7 @@ class Player extends BaseActor {
     private keys: CustomKeyboardInput;
     public emitter: Phaser.Events.EventEmitter;
 
+    private updatePlayer: boolean = true;
 
     constructor(scene: Phaser.Scene, x: number, y: number) {
         super(scene, x, y, "player");
@@ -51,21 +52,19 @@ class Player extends BaseActor {
             frames: this.scene.anims.generateFrameNames("player", { prefix: "run", start: 1, end: 8 }),
             frameRate: 10
         });
+        
         this.emitter = new Phaser.Events.EventEmitter();
 
         this.keys = new CustomKeyboardInput(scene);
-
         this.keys.escape.on("down", this.onEscPress, this);
 
-        this.setSize(23, 32);
-        //this.anims.play("player_idle", true);
+        this.setupPlayerEvents();
     }
 
     public update(): void {
         this.handleKeyboardInput();
         this.animations();
-        this.attack();
-        this.jump();
+        this.setupKeyboardEvents();
     }
 
     private onEscPress(): void {
@@ -89,69 +88,58 @@ class Player extends BaseActor {
                 this.setVelocityX(-this.walkSpeed);
             } else if (this.keys.right.isDown || this.keys.d.isDown) {
                 this.setVelocityX(this.walkSpeed);
-            }  else if (this.keys.up.isDown || this.keys.w.isDown) {
-                this.setVelocityY(-100);
-            } else if (this.keys.down.isDown || this.keys.s.isDown) {
-                this.setVelocityY(100);
-            } else if (this.keys.space.isDown){
-                this.setVelocityY(-100);
             }
             this.body.velocity.normalize().scale(this.walkSpeed);
         }
 
-        this.keys.space.on("down", () => {
-            this.body.velocity.y = -1000;
-            this.anims.play("player_jump", true);
-            this.jump();
-        });
-
     }
 
     private animations(): void {
-        if (this.keys.shift.isDown && (this.keys.a.isDown || this.keys.left.isDown || this.keys.d.isDown || this.keys.right.isDown)) {
-            this.anims.play("player_run", true);
-        } else if (this.keys.a.isDown || this.keys.left.isDown || this.keys.d.isDown || this.keys.right.isDown) {
-            this.anims.play("player_run", true);
-        } else {
-            this.anims.play("player_idle", true);
-        }
+        if (this.updatePlayer) {
+            if (this.keys.shift.isDown && (this.keys.a.isDown || this.keys.left.isDown || this.keys.d.isDown || this.keys.right.isDown)) {
+                this.anims.play("player_run", true);
+            } else if (this.keys.a.isDown || this.keys.left.isDown || this.keys.d.isDown || this.keys.right.isDown) {
+                this.anims.play("player_run", true);
+            } else {
+                this.anims.play("player_idle", true);
+                this.setSize(23, 32);
+            }
 
-        // this.keys.space.on("down", () => {
-        //     this.anims.play("player_jump", true);
-        // })
-
-        if (this.keys.a.isDown || this.keys.left.isDown) {
-            this.scaleX = -1;
-            this.setOffset(32, 28)
-        } else {
-            this.scaleX = 1;
-            this.setOffset(10, 28)
+            if (this.keys.a.isDown || this.keys.left.isDown) {
+                this.flipX = true;
+                this.setSize(23, 32);
+                this.setOffset(30, 28)
+            } else {
+                this.flipX = false;
+                this.setSize(23, 32);
+                this.setOffset(10, 28)
+            }
         }
     }
 
-    private attack(): void {
-        
+    private setupPlayerEvents(): void {
+        this.on('animationcomplete', (anim: Phaser.Animations.Animation) => {
+            this.emit("customEventName_" + anim.key);
+
+            this.updatePlayer = true;
+        });
+    }
+
+    private setupKeyboardEvents(): void {
         this.keys.z.on("down", () => {
+            this.updatePlayer = false;
             this.anims.play("player_attack", true);
-            console.log("neshto");
+            this.setSize(40, 32);
+            this.setOffset(10, 28)
+        });
+
+        this.keys.space.on("down", () => {
+            this.updatePlayer = false;
+            this.body.velocity.y = -6000;
+            this.body.velocity.x = 300;
+            this.anims.play("player_jump", true);
         });
     }
-
-     private jump(): void {
-        /* let tween: Phaser.Tweens.Tween = this.scene.tweens.add({
-            targets: this
-        });
-        */
-        /* if (this.keys.space.isDown && this.body.touching.down) {
-            this.body.velocity.y = -1000;
-        }  */
-
-        /* this.keys.space.on("down", () => {
-            this.setVelocityY(-6000);
-            this.anims.play("player_jump", true);
-            this.jump();
-        }); */
-    } 
 }
 
 export { Player }

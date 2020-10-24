@@ -14,11 +14,11 @@ class Preload extends Phaser.Scene {
         this.load.tilemapTiledJSON("level3", "./assets/level3/level3.json");
 
         //enemies
-        this.load.spritesheet("enemy1", "./assets/anims/enemy1.png", {frameWidth: 32, frameHeight: 32});
-        this.load.spritesheet("enemy2", "./assets/anims/enemy2.png", {frameWidth: 64, frameHeight: 64});
-        this.load.spritesheet("enemy3", "./assets/anims/enemy3.png", {frameWidth: 32, frameHeight: 32});
-        this.load.spritesheet("enemy4", "./assets/anims/enemy4.png", {frameWidth: 64, frameHeight: 64});
-        this.load.spritesheet("enemy5", "./assets/anims/enemy5.png", {frameWidth: 64, frameHeight: 64});
+        this.load.spritesheet("enemy1", "./assets/anims/enemy1.png", { frameWidth: 32, frameHeight: 32 });
+        this.load.spritesheet("enemy2", "./assets/anims/enemy2.png", { frameWidth: 64, frameHeight: 64 });
+        this.load.spritesheet("enemy3", "./assets/anims/enemy3.png", { frameWidth: 32, frameHeight: 32 });
+        this.load.spritesheet("enemy4", "./assets/anims/enemy4.png", { frameWidth: 64, frameHeight: 64 });
+        this.load.spritesheet("enemy5", "./assets/anims/enemy5.png", { frameWidth: 64, frameHeight: 64 });
 
         this.load.atlas("player", "./assets/anims/player.png", "./assets/anims/player.json");
 
@@ -32,13 +32,14 @@ class Preload extends Phaser.Scene {
         this.load.image("background4", "./assets/level2/bg3.png");
         this.load.image("logo", "./assets/UI/logo.png");
         this.load.image("window", "./assets/UI/window.png");
-        this.load.spritesheet("buttonsstart", "./assets/UI/buttonsstart.png", {frameWidth: 1618, frameHeight: 620});
-        this.load.spritesheet("optionbuttons", "./assets/UI/optionbuttons.png",{frameWidth: 366, frameHeight: 361});
+        this.load.image("sign", "./assets/anims/sign.png");
+        this.load.spritesheet("buttonsstart", "./assets/UI/buttonsstart.png", { frameWidth: 1618, frameHeight: 620 });
+        this.load.spritesheet("optionbuttons", "./assets/UI/optionbuttons.png", { frameWidth: 366, frameHeight: 361 });
         this.load.tilemapTiledJSON("level2", "./assets/level2/rockyworld2.json");
         this.load.atlas("enemy1_1", "./assets/anims/enemy1_1.png", "./assets/anims/enemy1_1.json");
         this.load.atlas("enemy3_1", "./assets/anims/enemy3_1.png", "./assets/anims/enemy3_1.json");
 
-        this.loadingText = this.add.text(this.cameras.main.width / 2, this.cameras.main.height / 2, "Loading..", {font: "40px Calibri", fill: "black"});
+        this.loadingText = this.add.text(this.cameras.main.width / 2, this.cameras.main.height / 2, "Loading", { font: "40px Calibri", fill: "white" });
         this.loadingText.setOrigin(0.5);
         this.add.existing(this.loadingText);
 

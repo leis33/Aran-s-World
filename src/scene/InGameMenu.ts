@@ -6,17 +6,17 @@ class InGameMenu extends MenuScene {
     private mainMenuBtn: BaseButton;
 
     constructor() {
-        super("ingamemenu");
+        super("ingameMenu");
     }
 
     create() {
         super.create();
 
-        this.restartBtn = new BaseButton(this,this.background.x,(this.background.y - this.background.displayHeight / 2) + this.background.displayHeight * 0.44,"buttonsstart", 0, "restart", 1);        
+        this.restartBtn = new BaseButton(this, this.background.x, (this.background.y - this.background.displayHeight / 2) + this.background.displayHeight * 0.44, "buttonsstart", 0, "restart", 1);
         this.restartBtn.setOnClick(this.onRestart, this);
         this.add.existing(this.restartBtn);
 
-        this.mainMenuBtn = new BaseButton(this,this.background.x, (this.background.y - this.background.displayHeight / 2) + this.background.displayHeight * 0.69, "buttonsstart", 0, "main menu", 1);
+        this.mainMenuBtn = new BaseButton(this, this.background.x, (this.background.y - this.background.displayHeight / 2) + this.background.displayHeight * 0.69, "buttonsstart", 0, "main menu", 1);
         this.mainMenuBtn.setOnClick(this.onMainMenu, this);
         this.add.existing(this.mainMenuBtn);
 
