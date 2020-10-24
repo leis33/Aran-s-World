@@ -35,12 +35,9 @@ class Level3 extends Phaser.Scene {
     }
 
     create() {
-<<<<<<< HEAD
         this.cameras.main.fadeIn(800);
-=======
         this.keys = new CustomKeyboardInput(this);
 
->>>>>>> 6fed82fc29553d3bfe4adf081652497306bf828c
         this.map = this.make.tilemap({ key: "level3" });
 
         let tileSet: Phaser.Tilemaps.Tileset = this.map.addTilesetImage("tiles", "tiles3");

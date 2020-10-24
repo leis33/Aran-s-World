@@ -75,9 +75,9 @@ class Level2 extends Phaser.Scene {
         this.scene.launch("ingamemenu");
     }
 
-    private getSceneName(){
-        return this.sceneName;
-    }
+    // private getSceneName(){
+    //     return this.sceneName;
+    // }
 
 }
 
