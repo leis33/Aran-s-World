@@ -4,7 +4,6 @@ import { Level3 } from './scene/level3';
 import { Level2 } from './scene/Level2';
 import { Start } from './scene/Start';
 import { InGameMenu } from "./scene/InGameMenu";
-import { MenuScene } from './scene/MenuScene';
 
 class GameApp extends Phaser.Game {
     public static gameConfig: Phaser.Types.Core.GameConfig = null;
@@ -29,7 +28,7 @@ class GameApp extends Phaser.Game {
                         debug: true
                     }
                 },
-                scene: [Preload, Start, InGameMenu, Level2, Level3]
+                scene: [Preload, Start, Level2, InGameMenu, Level3]
             };
         }
 
