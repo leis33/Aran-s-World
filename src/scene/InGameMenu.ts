@@ -28,13 +28,13 @@ class InGameMenu extends MenuScene {
 
     private onRestart(): void {
         this.scene.stop("level2");
-        this.scene.stop("ingameMenu");
+        this.scene.stop("ingamemenu");
         this.scene.start("level2");
     }
 
     private onMainMenu(): void {
         this.scene.stop("level2");
-        this.scene.stop("ingameMenu");
+        this.scene.stop("ingamemenu");
         this.scene.start("start");
     }
 
