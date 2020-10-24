@@ -58,13 +58,13 @@ class Level2 extends Phaser.Scene {
         let MainLayer: Phaser.Tilemaps.StaticTilemapLayer = this.map.createStaticLayer("Main Layer", [worldTileset,tileSet]).setDepth(6);
         let ObjectLayer: Phaser.Tilemaps.ObjectLayer = this.map.getObjectLayer("Object Layer 1");
 
-        Background1Layer.setScale(0.7);
-        Background2Layer.setScale(0.7);
-        Background3Layer.setScale(0.7);
-        TreeLayer1.setScale(0.7);
-        TileLayer.setScale(0.7);
-        TreeLayer2.setScale(0.7);
-        MainLayer.setScale(0.7);
+        // Background1Layer.setScale(0.7);
+        // Background2Layer.setScale(0.7);
+        // Background3Layer.setScale(0.7);
+        // TreeLayer1.setScale(0.7);
+        // TileLayer.setScale(0.7);
+        // TreeLayer2.setScale(0.7);
+        // MainLayer.setScale(0.7);
 
         let spawnPoint: any = this.map.findObject(ObjectLayer, (obj) => obj.name == "Start");
         let finishPoint: any = this.map.findObject(ObjectLayer, (obj) => obj.name == "Finish");
@@ -79,12 +79,14 @@ class Level2 extends Phaser.Scene {
         this.player = new Player(this, spawnPoint.x, spawnPoint.y - 129).setDepth(7);
         this.add.existing(this.player);
         
-        this.sign = this.add.image(finishPoint.x - 10, 285.59999999999997, "sign").setDepth(6);
+        this.sign = this.add.image(finishPoint.x, 420, "sign").setDepth(6);
         this.sign.setScale(0.17);
         this.add.existing(this.sign);
 
-        this.cameras.main.setBounds(0, 0, this.map.widthInPixels - 970, this.map.heightInPixels - 300);
-        this.physics.world.setBounds(0, 0, this.map.widthInPixels - 970, this.map.heightInPixels - 300);
+        // this.cameras.main.setBounds(0, 0, this.map.widthInPixels - 970, this.map.heightInPixels - 300);
+        // this.physics.world.setBounds(0, 0, this.map.widthInPixels - 970, this.map.heightInPixels - 300);
+        this.cameras.main.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
+        this.physics.world.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
         this.cameras.main.startFollow(this.player);
 
         this.physics.add.collider(this.player, MainLayer);
@@ -92,14 +94,13 @@ class Level2 extends Phaser.Scene {
 
         this.player.emitter.on("escPressed", this.onEscPressed, this);
 
-        console.log(this.player.x, this.player.y, spawnPoint.x, spawnPoint.y)
 
         // this.pauseButton = new BaseButton(this, 30, 30, "optionbuttons", 1, "", 4);
         // this.pauseButton.setDepth(8);
         // this.pauseButton.setOnClick(this.pauseButtonOnClick, this);
         // this.add.existing(this.pauseButton);
 
-        let enemy1 = new Enemy(this, enemy1Point.x * 0.7, enemy1Point.y * 0.7, "enemy1_1", "enemy1_attack");
+        let enemy1 = new Enemy(this, enemy1Point.x  , enemy1Point.y  , "enemy1_1", "enemy1_attack");
         enemy1.setDepth(8);
         this.physics.add.collider(enemy1, MainLayer);
         MainLayer.setCollisionByProperty({ collides: true });
@@ -110,7 +111,7 @@ class Level2 extends Phaser.Scene {
         (<Phaser.Physics.Arcade.Body>enemy1.body).setImmovable(true);
         this.add.existing(enemy1);
 
-        let enemy2 = new Enemy(this, enemy2Point.x * 0.7, enemy2Point.y * 0.7, "enemy1_1", "enemy1_attack");
+        let enemy2 = new Enemy(this, enemy2Point.x  , enemy2Point.y  , "enemy1_1", "enemy1_attack");
         enemy2.setDepth(8);
         this.physics.add.collider(enemy2, MainLayer);
         MainLayer.setCollisionByProperty({ collides: true });
@@ -121,7 +122,7 @@ class Level2 extends Phaser.Scene {
         (<Phaser.Physics.Arcade.Body>enemy2.body).setImmovable(true);
         this.add.existing(enemy2);
 
-        let enemy3 = new Enemy(this, enemy3Point.x * 0.7, enemy3Point.y *0.7, "enemy1_1", "enemy1_attack");
+        let enemy3 = new Enemy(this, enemy3Point.x  , enemy3Point.y *0.7, "enemy1_1", "enemy1_attack");
         enemy3.setDepth(8);
         this.physics.add.collider(enemy3, MainLayer);
         MainLayer.setCollisionByProperty({ collides: true });
@@ -130,7 +131,7 @@ class Level2 extends Phaser.Scene {
         (<Phaser.Physics.Arcade.Body>enemy3.body).setImmovable(true);
         this.add.existing(enemy3);
 
-        let enemy4 = new Enemy(this, enemy4Point.x * 0.7, enemy4Point.y * 0.7, "enemy3_1", "enemy3_attack");
+        let enemy4 = new Enemy(this, enemy4Point.x  , enemy4Point.y  , "enemy3_1", "enemy3_attack");
         enemy4.setDepth(8);
         this.physics.add.collider(enemy4, MainLayer);
         MainLayer.setCollisionByProperty({ collides: true });
@@ -141,7 +142,7 @@ class Level2 extends Phaser.Scene {
         (<Phaser.Physics.Arcade.Body>enemy4.body).setImmovable(true);
         this.add.existing(enemy4);
 
-        let enemy5 = new Enemy(this, enemy5Point.x * 0.7, enemy5Point.y * 0.7, "enemy3_1", "enemy3_attack");
+        let enemy5 = new Enemy(this, enemy5Point.x  , enemy5Point.y  , "enemy3_1", "enemy3_attack");
         enemy5.setDepth(8);
         this.physics.add.collider(enemy5, MainLayer);
         MainLayer.setCollisionByProperty({ collides: true });
@@ -151,7 +152,7 @@ class Level2 extends Phaser.Scene {
         (<Phaser.Physics.Arcade.Body>enemy5.body).setImmovable(true);
         this.add.existing(enemy5);
         
-        let enemy6 = new Enemy(this, enemy6Point.x * 0.7, enemy6Point.y * 0.7, "enemy4", "enemy4_idle");
+        let enemy6 = new Enemy(this, enemy6Point.x  , enemy6Point.y , "enemy4", "enemy4_idle");
         enemy6.setDepth(8);
         this.physics.add.collider(enemy6, MainLayer);
         MainLayer.setCollisionByProperty({ collides: true });

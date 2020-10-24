@@ -1,5 +1,6 @@
 import { CustomKeyboardInput } from "../utils/CustomKeyboardInput";
 import { BaseActor } from "./BaseActor";
+import { Enemy } from "./Enemy";
 
 class Player extends BaseActor {
     private readonly walkSpeed: number = 150;
@@ -134,11 +135,11 @@ class Player extends BaseActor {
         });
 
         this.keys.space.on("down", () => {
-            //if (this.body.velocity.y != this.scene.physics.world.gravity.y) {
+            // if (this.body.velocity.y != this.scene.physics.world.gravity.y && this.body.velocity.y != -6000) {
                 this.updatePlayer = false;
                 this.body.velocity.y = -6000;
                 this.anims.play("player_jump", true);
-           // }
+        //    }
         });
     }
 
