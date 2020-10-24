@@ -15,6 +15,7 @@ class Enemy extends BaseActor {
             repeat: -1
         });
 
+        this.flipX = true;
         this.anims.play(animsKey, true);
     }
 }
