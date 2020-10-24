@@ -68,44 +68,49 @@ class Level3 extends Phaser.Scene {
         foregroundLayer1.setCollisionByProperty({ collides: true });
 
         //TODO: fix enemies' hitboxes
-        let enemies3: Phaser.GameObjects.Sprite[] = this.map.createFromObjects("objects", 1796, { key: "enemy3" })
-        for (let enemy of enemies3) {
-            this.add.existing(enemy);
-            this.physics.add.existing(enemy);
+        let enemy1 = new Enemy(this, 672, 406, "enemy3", "enemy3_idle");
+        enemy1.setDepth(7);
+        this.physics.add.collider(enemy1, foregroundLayer1);
+        this.physics.add.collider(this.player, enemy1);
+        enemy1.scaleX = -1;
+        enemy1.setOffset(32, 0);
+        (<Phaser.Physics.Arcade.Body>enemy1.body).setImmovable(true);
+        this.add.existing(enemy1);
 
-            enemy.setDepth(7);
+        let enemy2 = new Enemy(this, 1248, 630, "enemy3", "enemy3_idle");
+        enemy2.setDepth(8);
+        this.physics.add.collider(enemy2, foregroundLayer1);
+        this.physics.add.collider(this.player, enemy2);
+        (<Phaser.Physics.Arcade.Body>enemy2.body).setImmovable(true);
+        this.add.existing(enemy2);
 
-            enemy.anims.play("enemy3_idle", true);
-            (<Phaser.Physics.Arcade.Body>enemy.body).setImmovable(true);
+        let enemy3 = new Enemy(this, 1856, 342, "enemy3", "enemy3_idle");
+        enemy3.setDepth(8);
+        this.physics.add.collider(enemy3, foregroundLayer1);
+        this.physics.add.collider(this.player, enemy3);
+        (<Phaser.Physics.Arcade.Body>enemy3.body).setImmovable(true);
+        this.add.existing(enemy3);
 
-            this.physics.add.collider(this.player, enemy);
-        }
+        let enemy4 = new Enemy(this, 1952, 312, "enemy2", "enemy2_idle");
+        enemy4.setDepth(8);
+        this.physics.add.collider(enemy4, foregroundLayer1);
+        this.physics.add.collider(this.player, enemy4);
+        (<Phaser.Physics.Arcade.Body>enemy4.body).setImmovable(true);
+        this.add.existing(enemy4);
 
-        let enemies2: Phaser.GameObjects.Sprite[] = this.map.createFromObjects("objects", 1799, { key: "enemy2" })
-        for (let enemy of enemies2) {
-            this.add.existing(enemy);
-            this.physics.add.existing(enemy);
-
-            enemy.setDepth(7);
-
-            enemy.anims.play("enemy2_idle", true);
-            (<Phaser.Physics.Arcade.Body>enemy.body).setImmovable(true);
-
-            this.physics.add.collider(this.player, enemy);
-        }
-
-        let enemies4: Phaser.GameObjects.Sprite[] = this.map.createFromObjects("objects", 1802, { key: "enemy4" })
-        for (let enemy of enemies4) {
-            this.add.existing(enemy);
-            this.physics.add.existing(enemy);
-
-            enemy.setDepth(7);
-
-            enemy.anims.play("enemy4_idle", true);
-            (<Phaser.Physics.Arcade.Body>enemy.body).setImmovable(true);
-
-            this.physics.add.collider(this.player, enemy);
-        }
+        let enemy5 = new Enemy(this, 736, 696, "enemy2", "enemy2_idle");
+        enemy5.setDepth(8);
+        this.physics.add.collider(enemy5, foregroundLayer1);
+        this.physics.add.collider(this.player, enemy5);
+        (<Phaser.Physics.Arcade.Body>enemy5.body).setImmovable(true);
+        this.add.existing(enemy5);
+        
+        let enemy6 = new Enemy(this, 2624, 504, "enemy4", "enemy4_idle");
+        enemy6.setDepth(8);
+        this.physics.add.collider(enemy6, foregroundLayer1);
+        this.physics.add.collider(this.player, enemy6);
+        (<Phaser.Physics.Arcade.Body>enemy6.body).setImmovable(true);
+        this.add.existing(enemy6);
     }
 
     update() {

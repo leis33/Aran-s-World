@@ -93,7 +93,7 @@ class Player extends BaseActor {
         }
 
         this.keys.space.on("down", () => {
-            this.body.velocity.y = -3000;
+            this.body.velocity.y = -6000;
             this.anims.play("player_jump", true);
             this.jump();
         });
