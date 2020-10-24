@@ -139,6 +139,14 @@ class Player extends BaseActor {
             this.anims.play("player_jump", true);
         });
     }
+
+    public onPlayerEnemyCollision(player: Phaser.Physics.Arcade.Sprite, enemy: Phaser.Physics.Arcade.Sprite) {
+        if (player.body.width == 40) {
+            enemy.destroy();
+        } else {
+            //player.destroy();
+        }
+    }
 }
 
 export { Player }
