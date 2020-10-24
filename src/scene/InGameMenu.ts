@@ -4,9 +4,14 @@ import { MenuScene } from "./MenuScene";
 class InGameMenu extends MenuScene {
     private restartBtn: BaseButton;
     private mainMenuBtn: BaseButton;
+    private sceneKey: string;
 
     constructor() {
         super("ingameMenu");
+    }
+
+    init(data: {key: string}) {
+        this.sceneKey = data.key;
     }
 
     create() {
@@ -27,20 +32,20 @@ class InGameMenu extends MenuScene {
     }
 
     private onRestart(): void {
-        this.scene.stop("level2");
+        this.scene.stop(this.sceneKey);
         this.scene.stop("ingamemenu");
-        this.scene.start("level2");
+        this.scene.start(this.sceneKey);
     }
 
     private onMainMenu(): void {
-        this.scene.stop("level2");
+        this.scene.stop(this.sceneKey);
         this.scene.stop("ingamemenu");
         this.scene.start("start");
     }
 
     private onClose(): void {
         this.scene.stop();
-        this.scene.resume("level2");
+        this.scene.resume(this.sceneKey);
     }
 }
 

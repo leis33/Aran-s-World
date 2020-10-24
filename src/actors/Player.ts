@@ -130,14 +130,15 @@ class Player extends BaseActor {
             this.updatePlayer = false;
             this.anims.play("player_attack", true);
             this.setSize(40, 32);
-            this.setOffset(10, 28)
+            this.setOffset(10, 28);
         });
 
         this.keys.space.on("down", () => {
-            this.updatePlayer = false;
-            this.body.velocity.y = -6000;
-            this.body.velocity.x = 300;
-            this.anims.play("player_jump", true);
+            //if (this.body.velocity.y != this.scene.physics.world.gravity.y) {
+                this.updatePlayer = false;
+                this.body.velocity.y = -6000;
+                this.anims.play("player_jump", true);
+           // }
         });
     }
 
@@ -148,6 +149,14 @@ class Player extends BaseActor {
             //player.destroy();
         }
     }
+
+    /* public onPlayerEnvironmentCollision(player: Phaser.Physics.Arcade.Sprite, enemy: Phaser.Tilemaps.StaticTilemapLayer) {
+        if (player.flipX = false && player.body.width == 40 && player.body.blocked.right) {
+            player.body.x -= 17;
+        } else if (player.flipX = true && player.body.width == 40 && player.body.blocked.left) {
+            player.body.x += 17;
+        }
+    } */
 }
 
 export { Player }

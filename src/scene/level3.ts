@@ -70,6 +70,8 @@ class Level3 extends Phaser.Scene {
         this.player = new Player(this, spawnPoint.x, spawnPoint.y).setDepth(7);
         this.add.existing(this.player);
 
+        this.player.emitter.on("escPressed", this.onEscPressed, this);
+
         this.cameras.main.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
         this.physics.world.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
         this.cameras.main.startFollow(this.player);
@@ -77,7 +79,6 @@ class Level3 extends Phaser.Scene {
         this.physics.add.collider(this.player, foregroundLayer1);
         foregroundLayer1.setCollisionByProperty({ collides: true });
 
-        //TODO: fix enemies' hitboxes
         let enemy1 = new Enemy(this, 672, 406, "enemy3", "enemy3_idle");
         enemy1.setDepth(7);
         this.physics.add.collider(enemy1, foregroundLayer1);
@@ -132,6 +133,11 @@ class Level3 extends Phaser.Scene {
         enemy6.setOffset(33, 4);
         (<Phaser.Physics.Arcade.Body>enemy6.body).setImmovable(true);
         this.add.existing(enemy6);
+    }
+
+    private onEscPressed(): void {
+        this.scene.pause();
+        this.scene.launch("ingameMenu", { key: "level3" });
     }
 
     update() {
