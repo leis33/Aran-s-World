@@ -1,6 +1,7 @@
 import { Player } from "../actors/Player";
 import { Enemy } from "../actors/Enemy";
 import { CustomKeyboardInput } from "../utils/CustomKeyboardInput";
+import { Collectible } from "../actors/Collectible";
 
 class Level3 extends Phaser.Scene {
     private map: Phaser.Tilemaps.Tilemap;
@@ -63,8 +64,12 @@ class Level3 extends Phaser.Scene {
 
         let objectLayer: Phaser.Tilemaps.ObjectLayer = this.map.getObjectLayer("objects");
 
-        let spawnPoint: any = this.map.findObject("objects", (obj) => obj.name == "Start")
-        let finishPoint: any = this.map.findObject("objects", (obj) => obj.name == "Finish");
+        let spawnPoint: any = this.map.findObject(objectLayer, (obj) => obj.name == "Start")
+        let finishPoint: any = this.map.findObject(objectLayer, (obj) => obj.name == "Finish");
+        let diamondPoint1: any = this.map.findObject(objectLayer, (obj) => obj.name == "dia1");
+        let diamondPoint2: any = this.map.findObject(objectLayer, (obj) => obj.name == "dia2");
+        let diamondPoint3: any = this.map.findObject(objectLayer, (obj) => obj.name == "dia3");
+        let heartPoint1: any = this.map.findObject(objectLayer, (obj) => obj.name == "heart");
 
         this.player = new Player(this, spawnPoint.x, spawnPoint.y).setDepth(7);
         this.add.existing(this.player);
@@ -90,7 +95,6 @@ class Level3 extends Phaser.Scene {
         this.physics.add.collider(this.player, enemy1, this.player.onPlayerEnemyCollision, null, this);
         enemy1.setSize(18, 20);
         enemy1.setOffset(10, 10);
-        (<Phaser.Physics.Arcade.Body>enemy1.body).setImmovable(true);
         this.add.existing(enemy1);
 
         let enemy2 = new Enemy(this, 1248, 630, "enemy3", "enemy3_idle");
@@ -99,7 +103,6 @@ class Level3 extends Phaser.Scene {
         this.physics.add.collider(this.player, enemy2, this.player.onPlayerEnemyCollision, null, this);
         enemy2.setSize(18, 20);
         enemy2.setOffset(10, 10);
-        (<Phaser.Physics.Arcade.Body>enemy2.body).setImmovable(true);
         this.add.existing(enemy2);
 
         let enemy3 = new Enemy(this, 1856, 342, "enemy3", "enemy3_idle");
@@ -108,7 +111,6 @@ class Level3 extends Phaser.Scene {
         this.physics.add.collider(this.player, enemy3, this.player.onPlayerEnemyCollision, null, this);
         enemy3.setSize(18, 20);
         enemy3.setOffset(10, 10);
-        (<Phaser.Physics.Arcade.Body>enemy3.body).setImmovable(true);
         this.add.existing(enemy3);
 
         let enemy4 = new Enemy(this, 1952, 312, "enemy2", "enemy2_idle");
@@ -117,7 +119,6 @@ class Level3 extends Phaser.Scene {
         this.physics.add.collider(this.player, enemy4, this.player.onPlayerEnemyCollision, null, this);
         enemy4.setSize(18, 40);
         enemy4.setOffset(24, 24);
-        (<Phaser.Physics.Arcade.Body>enemy4.body).setImmovable(true);
         this.add.existing(enemy4);
 
         let enemy5 = new Enemy(this, 736, 696, "enemy2", "enemy2_idle");
@@ -126,7 +127,6 @@ class Level3 extends Phaser.Scene {
         this.physics.add.collider(this.player, enemy5, this.player.onPlayerEnemyCollision, null, this);
         enemy5.setSize(18, 40);
         enemy5.setOffset(24, 24);
-        (<Phaser.Physics.Arcade.Body>enemy5.body).setImmovable(true);
         this.add.existing(enemy5);
         
         let enemy6 = new Enemy(this, 2624, 240, "enemy4", "enemy4_idle");
@@ -136,8 +136,21 @@ class Level3 extends Phaser.Scene {
         enemy6.setScale(2);
         enemy6.setSize(20, 60);
         enemy6.setOffset(33, 4);
-        (<Phaser.Physics.Arcade.Body>enemy6.body).setImmovable(true);
         this.add.existing(enemy6);
+
+        //collectibles
+        let diamond1 = new Collectible(this, diamondPoint1.x, diamondPoint1.y, "diamonds", "diamond");
+        this.physics.add.collider(this.player, diamond1, this.player.onPlayerDiamondCollision, null, this);
+
+        let diamond2 = new Collectible(this, diamondPoint2.x, diamondPoint2.y, "diamonds", "diamond");
+        this.physics.add.collider(this.player, diamond2, this.player.onPlayerDiamondCollision, null, this);
+
+        let diamond3 = new Collectible(this, diamondPoint3.x, diamondPoint3.y, "diamonds", "diamond");
+        this.physics.add.collider(this.player, diamond3, this.player.onPlayerDiamondCollision, null, this);
+
+        let heart1 = new Collectible(this, heartPoint1.x, heartPoint1.y, "hearts", "heart");
+        heart1.setScale(1.5);
+        this.physics.add.collider(this.player, heart1, this.player.onPlayerHeartCollision, null, this);
     }
 
     private onEscPressed(): void {
