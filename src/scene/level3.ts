@@ -5,7 +5,7 @@ import { CustomKeyboardInput } from "../utils/CustomKeyboardInput";
 class Level3 extends Phaser.Scene {
     private map: Phaser.Tilemaps.Tilemap;
     private player: Player;
-    private keys: CustomKeyboardInput;
+    private sign: Phaser.GameObjects.Sprite;
 
     constructor() {
         super("level3");
@@ -37,8 +37,6 @@ class Level3 extends Phaser.Scene {
     create() {
         this.cameras.main.fadeIn(800);
 
-        this.keys = new CustomKeyboardInput(this);
-
         this.map = this.make.tilemap({ key: "level3" });
 
         let tileSet: Phaser.Tilemaps.Tileset = this.map.addTilesetImage("tiles", "tiles3");
@@ -66,6 +64,7 @@ class Level3 extends Phaser.Scene {
         let objectLayer: Phaser.Tilemaps.ObjectLayer = this.map.getObjectLayer("objects");
 
         let spawnPoint: any = this.map.findObject("objects", (obj) => obj.name == "Start")
+        let finishPoint: any = this.map.findObject("objects", (obj) => obj.name == "Finish");
 
         this.player = new Player(this, spawnPoint.x, spawnPoint.y).setDepth(7);
         this.add.existing(this.player);
@@ -79,6 +78,12 @@ class Level3 extends Phaser.Scene {
         this.physics.add.collider(this.player, foregroundLayer1);
         foregroundLayer1.setCollisionByProperty({ collides: true });
 
+        this.sign = this.add.sprite(finishPoint.x + 35, finishPoint.y + 4, "sign").setDepth(6);
+        this.sign.setScale(0.17);
+        this.sign.setTint(0x63543c);
+        this.add.existing(this.sign);
+
+        //enemy spawning
         let enemy1 = new Enemy(this, 672, 406, "enemy3", "enemy3_idle");
         enemy1.setDepth(7);
         this.physics.add.collider(enemy1, foregroundLayer1);
@@ -138,10 +143,20 @@ class Level3 extends Phaser.Scene {
     private onEscPressed(): void {
         this.scene.pause();
         this.scene.launch("ingameMenu", { key: "level3" });
+
     }
 
     update() {
         this.player.update();
+
+        if (this.player.x >= this.sign.x && this.player.y == this.sign.y) {
+            this.finishLine();
+        }
+    }
+
+    private finishLine() {
+        this.cameras.main.fadeOut(800);
+        this.scene.start("gameOver");
     }
 }
 

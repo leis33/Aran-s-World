@@ -33,9 +33,11 @@ class Preload extends Phaser.Scene {
         this.load.image("logo", "./assets/UI/logo.png");
         this.load.image("window", "./assets/UI/window.png");
         this.load.image("sign", "./assets/anims/sign.png");
+        this.load.image("gameOver", "./assets/UI/gameOver.png")
         this.load.spritesheet("buttonsstart", "./assets/UI/buttonsstart.png", { frameWidth: 1618, frameHeight: 620 });
         this.load.spritesheet("optionbuttons", "./assets/UI/optionbuttons.png", { frameWidth: 366, frameHeight: 361 });
         this.load.tilemapTiledJSON("level2", "./assets/level2/rockyworld2.json");
+
         this.load.atlas("enemy1_1", "./assets/anims/enemy1_1.png", "./assets/anims/enemy1_1.json");
         this.load.atlas("enemy3_1", "./assets/anims/enemy3_1.png", "./assets/anims/enemy3_1.json");
 

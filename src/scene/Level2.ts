@@ -81,6 +81,7 @@ class Level2 extends Phaser.Scene {
         
         this.sign = this.add.image(finishPoint.x - 10, 285.59999999999997, "sign").setDepth(6);
         this.sign.setScale(0.17);
+        this.sign.setTint(0x63543c);
         this.add.existing(this.sign);
 
         this.cameras.main.setBounds(0, 0, this.map.widthInPixels - 970, this.map.heightInPixels - 300);
