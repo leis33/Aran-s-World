@@ -1,11 +1,4 @@
 { "compressionlevel":-1,
- "editorsettings":
-    {
-     "export":
-        {
-         "target":"."
-        }
-    },
  "height":25,
  "infinite":false,
  "layers":[
@@ -193,6 +186,54 @@
                  "width":0,
                  "x":3136,
                  "y":512
+                }, 
+                {
+                 "height":0,
+                 "id":26,
+                 "name":"dia1",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":704.666666666667,
+                 "y":711.333333333333
+                }, 
+                {
+                 "height":0,
+                 "id":27,
+                 "name":"dia2",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":1094,
+                 "y":694.666666666667
+                }, 
+                {
+                 "height":0,
+                 "id":28,
+                 "name":"dia3",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":508,
+                 "y":467.333333333333
+                }, 
+                {
+                 "height":0,
+                 "id":29,
+                 "name":"heart",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":2255.33333333333,
+                 "y":459.333333333333
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -201,7 +242,7 @@
          "y":0
         }],
  "nextlayerid":9,
- "nextobjectid":26,
+ "nextobjectid":30,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.4.2",
