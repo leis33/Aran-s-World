@@ -1,7 +1,4 @@
 import { Player } from "../actors/Player";
-import { CustomKeyboardInput } from "../utils/CustomKeyboardInput";
-
-
 
 class Level1 extends Phaser.Scene {
     private map: Phaser.Tilemaps.Tilemap;
@@ -49,14 +46,13 @@ class Level1 extends Phaser.Scene {
         this.physics.add.collider(this.player, foregroundLayer1);
          foregroundLayer1.setCollisionByProperty({ collides: true });
 
-         this.physics.add.collider(this.player, foregroundLayer1);
+        this.physics.add.collider(this.player, foregroundLayer1);
          foregroundLayer1.setCollisionByProperty({ spikeCollides: true });
 
-         foregroundLayer1.renderDebug(this.add.graphics(), {
-            tileColor:null,
+        foregroundLayer1.renderDebug(this.add.graphics(), {
+            tileColor: null,
             collidingTileColor: new Phaser.Display.Color(200, 48, 200, 255),
-           faceColor: new Phaser.Display.Color(40, 39, 37, 255)
-
+            faceColor: new Phaser.Display.Color(40, 39, 37, 255)
         })
     }
 }

@@ -1,6 +1,5 @@
 import { Player } from "../actors/Player";
 import { Enemy } from "../actors/Enemy";
-import { CustomKeyboardInput } from "../utils/CustomKeyboardInput";
 import { Collectible } from "../actors/Collectible";
 
 class Level3 extends Phaser.Scene {
