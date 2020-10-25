@@ -1,5 +1,6 @@
 import { BaseButton } from "../graphics/BaseButton";
 import { MenuScene } from "./MenuScene";
+import { Player } from "../actors/Player";
 
 class InGameMenu extends MenuScene {
     private restartBtn: BaseButton;

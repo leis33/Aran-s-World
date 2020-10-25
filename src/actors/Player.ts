@@ -139,6 +139,7 @@ class Player extends BaseActor {
                 this.updatePlayer = false;
                 this.body.velocity.y = -6000;
                 this.anims.play("player_jump", true);
+               
         //    }
         });
     }
@@ -149,6 +150,14 @@ class Player extends BaseActor {
         } else {
             //player.destroy();
         }
+    }
+
+    public onPlayerDiamondCollision(player: Phaser.Physics.Arcade.Sprite, diamond: Phaser.Physics.Arcade.Sprite){
+        diamond.destroy();
+    }
+
+    public onPlayerHeartCollision(player: Phaser.Physics.Arcade.Sprite, heart: Phaser.Physics.Arcade.Sprite){
+        heart.destroy();
     }
 
     /* public onPlayerEnvironmentCollision(player: Phaser.Physics.Arcade.Sprite, enemy: Phaser.Tilemaps.StaticTilemapLayer) {
