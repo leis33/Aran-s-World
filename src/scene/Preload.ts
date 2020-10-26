@@ -23,9 +23,9 @@ class Preload extends Phaser.Scene {
 
         this.load.atlas("player", "./assets/anims/player.png", "./assets/anims/player.json");
 
-        this.load.image("background_night1", "./assets/Level1/background_day1.png");
-        this.load.image("background_night2", "./assets/Level1/background_day2.png");
-        this.load.image("background_night3", "./assets/Level1/background_day3.png");
+        this.load.image("background_day1", "./assets/Level1/background_day1.png");
+        this.load.image("background_day2", "./assets/Level1/background_day2.png");
+        this.load.image("background_day3", "./assets/Level1/background_day3.png");
 
         this.load.image("backgrounD1", "./assets/Level1/background_day1.png");
         this.load.image("backgrounD2", "./assets/Level1/background_day2.png");

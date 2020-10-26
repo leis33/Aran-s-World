@@ -12,11 +12,11 @@ class Start extends Phaser.Scene {
     }
 
     create() {
-        this.background1 = new BackgroundGraphics(this, "background_night1");
+        this.background1 = new BackgroundGraphics(this, "background_day1");
         this.add.existing(this.background1);
-        this.background2 = new BackgroundGraphics(this, "background_night2");
+        this.background2 = new BackgroundGraphics(this, "background_day2");
         this.add.existing(this.background2);
-        this.background3 = new BackgroundGraphics(this, "background_night3");
+        this.background3 = new BackgroundGraphics(this, "background_day3");
         this.add.existing(this.background3);
 
         this.logo = this.add.image(this.cameras.main.width / 2, 100, "logo");
