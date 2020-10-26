@@ -104,10 +104,10 @@ class Level2 extends Phaser.Scene {
         this.player.emitter.on("escPressed", this.onEscPressed, this);
 
 
-        // this.pauseButton = new BaseButton(this, 30, 30, "optionbuttons", 1, "", 4);
-        // this.pauseButton.setDepth(8);
-        // this.pauseButton.setOnClick(this.pauseButtonOnClick, this);
-        // this.add.existing(this.pauseButton);
+        this.pauseButton = new BaseButton(this, 30, 30, "optionbuttons", 1, "", 4);
+        this.pauseButton.setDepth(8);
+        this.pauseButton.setOnClick(this.pauseButtonOnClick, this);
+        this.add.existing(this.pauseButton);
 
         //enemies
         let enemy1 = new Enemy(this, enemy1Point.x  , enemy1Point.y  , "enemy1_1", "enemy1_attack");
@@ -187,10 +187,10 @@ class Level2 extends Phaser.Scene {
         this.cameras.main.fadeOut(800);
         this.scene.start("level3");
     }
-    // private pauseButtonOnClick() {
-    //     this.scene.pause();
-    //     this.scene.launch("ingameMenu");
-    // }
+    private pauseButtonOnClick() {
+        this.scene.pause();
+        this.scene.launch("ingameMenu");
+    }
 
     private onEscPressed(): void {
         this.scene.pause();

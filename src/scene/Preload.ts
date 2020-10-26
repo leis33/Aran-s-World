@@ -30,10 +30,10 @@ class Preload extends Phaser.Scene {
         this.load.image("backgrounD1", "./assets/Level1/background_day1.png");
         this.load.image("backgrounD2", "./assets/Level1/background_day2.png");
         this.load.image("backgrounD3", "./assets/Level1/background_day3.png");
-        this.load.image("backgrounD4", "./assets/Level1/mainlevbuild_A.png");
+        // this.load.image("backgrounD4", "./assets/Level1/mainlevbuild_A.png");
         this.load.image("decorations1", "./assets/Level1/decorative.png");
         this.load.image("mainlevbuild1", "./assets/Level1/mainlevbuild_A.png");
-        this.load.tilemapTiledJSON("level1", "./assets/level1/level1.json");
+        this.load.tilemapTiledJSON("level1", "./assets/Level1/Level1.json");
 
         this.load.image("tiles1", "./assets/level2/main_lev_build.png");
         this.load.image("tiles2", "./assets/level2/other_lev_build.png");
@@ -41,6 +41,8 @@ class Preload extends Phaser.Scene {
         this.load.image("background1", "./assets/level2/bg1.png");
         this.load.image("background2", "./assets/level2/bg2.png");
         this.load.image("background4", "./assets/level2/bg3.png");
+
+        this.load.tilemapTiledJSON("level2", "./assets/level2/rockyworld2.json");
 
         this.load.image("logo", "./assets/UI/logo.png");
         this.load.image("window", "./assets/UI/window.png");
@@ -52,7 +54,6 @@ class Preload extends Phaser.Scene {
         this.load.spritesheet("diamonds", "./assets/collectibles/diamonds.png", { frameWidth: 16, frameHeight: 14});
         this.load.spritesheet("hearts", "./assets/collectibles/hearts.png", { frameWidth: 13, frameHeight: 13});
     
-        this.load.tilemapTiledJSON("level2", "./assets/level2/rockyworld2.json");
 
         this.load.atlas("enemy1_1", "./assets/anims/enemy1_1.png", "./assets/anims/enemy1_1.json");
         this.load.atlas("enemy3_1", "./assets/anims/enemy3_1.png", "./assets/anims/enemy3_1.json");

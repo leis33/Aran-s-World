@@ -34,10 +34,10 @@ class Level1 extends Phaser.Scene {
         let spawnPoint: any = this.map.findObject(objectLayer, (obj) => obj.name == "Start")
         let finishPoint: any = this.map.findObject(objectLayer, (obj) => obj.name == "Finish");
 
-        this.player = new Player(this, spawnPoint.x, spawnPoint.y).setDepth(6);
+        this.player = new Player(this, 600, 300).setDepth(6);
         this.add.existing(this.player);
 
-       // this.player.emitter.on("escPressed", this.onEscPressed, this);
+       //this.player.emitter.on("escPressed", this.onEscPressed, this);
 
         this.cameras.main.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
         this.physics.world.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
@@ -54,6 +54,10 @@ class Level1 extends Phaser.Scene {
             collidingTileColor: new Phaser.Display.Color(200, 48, 200, 255),
             faceColor: new Phaser.Display.Color(40, 39, 37, 255)
         })
+     }
+
+     update(){
+        this.player.update();
      }
 }
 
