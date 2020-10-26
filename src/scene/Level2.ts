@@ -180,6 +180,9 @@ class Level2 extends Phaser.Scene {
         if(this.player.x >= this.sign.x && this.player.y == this.sign.y){
             this.finishLine();
         }
+
+        this.pauseButton.x = this.cameras.main.scrollX;
+        this.pauseButton.y = this.cameras.main.scrollY;
     }
 
 
@@ -189,7 +192,7 @@ class Level2 extends Phaser.Scene {
     }
     private pauseButtonOnClick() {
         this.scene.pause();
-        this.scene.launch("ingameMenu");
+        this.scene.launch("ingameMenu", { key: "level2" });
     }
 
     private onEscPressed(): void {

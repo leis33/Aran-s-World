@@ -33,15 +33,17 @@ class InGameMenu extends MenuScene {
     }
 
     private onRestart(): void {
-        this.scene.stop(this.sceneKey);
-        this.scene.stop("ingamemenu");
+        // this.scene.stop(this.sceneKey);
+        this.scene.stop("ingameMenu");
         this.scene.start(this.sceneKey);
+        console.log("restart");
     }
 
     private onMainMenu(): void {
         this.scene.stop(this.sceneKey);
-        this.scene.stop("ingamemenu");
+        this.scene.stop("ingameMenu");
         this.scene.start("start");
+        console.log("main");
     }
 
     private onClose(): void {

@@ -61,6 +61,7 @@ class Player extends BaseActor {
         this.keys.escape.on("down", this.onEscPress, this);
 
         this.setupPlayerEvents();
+        // this.setupKeyboardEvents();
     }
 
     public update(): void {
@@ -130,15 +131,16 @@ class Player extends BaseActor {
     private setupKeyboardEvents(): void {
         this.keys.z.on("down", () => {
             this.updatePlayer = false;
-            this.anims.play("player_attack", true);
             this.setSize(40, 32);
             this.setOffset(10, 28);
+            this.anims.play("player_attack", true);
+            console.log("played attack");
         });
 
         this.keys.space.on("down", () => {
             // if (this.body.velocity.y != this.scene.physics.world.gravity.y && this.body.velocity.y != -6000) {
                 this.updatePlayer = false;
-                this.body.velocity.y = -6000;
+                this.setVelocityY(-6000);
                 this.anims.play("player_jump", true);
                
         //    }
@@ -155,10 +157,16 @@ class Player extends BaseActor {
 
     public onPlayerDiamondCollision(player: Phaser.Physics.Arcade.Sprite, diamond: Phaser.Physics.Arcade.Sprite){
         diamond.destroy();
+        // let diamondSmall = this.scene.add.image(300, 200, "diamonds", 1);
+        // diamondSmall.setScale(0.7);
+        // this.scene.add.existing(diamondSmall);
     }
 
     public onPlayerHeartCollision(player: Phaser.Physics.Arcade.Sprite, heart: Phaser.Physics.Arcade.Sprite){
         heart.destroy();
+        // let heartSmall = this.scene.add.image(100, 100, "hearts", 1);
+        // heartSmall.setScale(0.7);
+        // this.scene.add.existing(heartSmall);
     }
 
     /* public onPlayerEnvironmentCollision(player: Phaser.Physics.Arcade.Sprite, enemy: Phaser.Tilemaps.StaticTilemapLayer) {

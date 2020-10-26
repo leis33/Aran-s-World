@@ -1,11 +1,13 @@
 import { Player } from "../actors/Player";
 import { Enemy } from "../actors/Enemy";
 import { Collectible } from "../actors/Collectible";
+import { BaseButton } from "../graphics/BaseButton";
 
 class Level3 extends Phaser.Scene {
     private map: Phaser.Tilemaps.Tilemap;
     private player: Player;
     private sign: Phaser.GameObjects.Sprite;
+    private pauseButton: BaseButton;
 
     constructor() {
         super("level3");
@@ -87,6 +89,11 @@ class Level3 extends Phaser.Scene {
         this.sign.setTint(0x63543c);
         this.add.existing(this.sign);
 
+        this.pauseButton = new BaseButton(this, 30, 30, "optionbuttons", 1, "", 4);
+        this.pauseButton.setDepth(8);
+        this.pauseButton.setOnClick(this.pauseButtonOnClick, this);
+        this.add.existing(this.pauseButton);
+
         //enemy spawning
         let enemy1 = new Enemy(this, 672, 406, "enemy3", "enemy3_idle");
         enemy1.setDepth(7);
@@ -152,23 +159,30 @@ class Level3 extends Phaser.Scene {
         this.physics.add.collider(this.player, heart1, this.player.onPlayerHeartCollision, null, this);
     }
 
-    private onEscPressed(): void {
-        this.scene.pause();
-        this.scene.launch("ingameMenu", { key: "level3" });
-
-    }
-
     update() {
         this.player.update();
 
         if (this.player.x >= this.sign.x && this.player.y == this.sign.y) {
             this.finishLine();
         }
+
+        this.pauseButton.x = this.cameras.main.scrollX;
+        this.pauseButton.y = this.cameras.main.scrollY;
     }
 
     private finishLine() {
         this.cameras.main.fadeOut(800);
         this.scene.start("gameOver");
+    }
+
+    private pauseButtonOnClick() {
+        this.scene.pause();
+        this.scene.launch("ingameMenu", { key: "level3" });
+    }
+
+    private onEscPressed(): void {
+        this.scene.pause();
+        this.scene.launch("ingameMenu", { key: "level3" });
     }
 }
 

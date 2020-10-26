@@ -1,8 +1,11 @@
 import { Player } from "../actors/Player";
+import { BaseButton } from "../graphics/BaseButton";
 
 class Level1 extends Phaser.Scene {
     private map: Phaser.Tilemaps.Tilemap;
     private player: Player;
+    private sign: Phaser.GameObjects.Image;
+    private pauseButton: BaseButton;
     //private sign: Phaser.GameObjects.Sprite;
 
     constructor() {
@@ -34,7 +37,7 @@ class Level1 extends Phaser.Scene {
         let spawnPoint: any = this.map.findObject(objectLayer, (obj) => obj.name == "Start")
         let finishPoint: any = this.map.findObject(objectLayer, (obj) => obj.name == "Finish");
 
-        this.player = new Player(this, 600, 300).setDepth(6);
+        this.player = new Player(this, 200, 600).setDepth(6);
         this.add.existing(this.player);
 
        //this.player.emitter.on("escPressed", this.onEscPressed, this);
@@ -54,11 +57,42 @@ class Level1 extends Phaser.Scene {
             collidingTileColor: new Phaser.Display.Color(200, 48, 200, 255),
             faceColor: new Phaser.Display.Color(40, 39, 37, 255)
         })
+        //fix sign spawn point (finish point)
+        this.sign = this.add.image( 200, 452, "sign").setDepth(5);
+        this.sign.setScale(0.17);
+        this.sign.setTint(0x63543c);
+        this.add.existing(this.sign);
+
+        this.pauseButton = new BaseButton(this, 30, 30, "optionbuttons", 1, "", 4);
+        this.pauseButton.setDepth(8);
+        this.pauseButton.setOnClick(this.pauseButtonOnClick, this);
+        this.add.existing(this.pauseButton);
      }
 
      update(){
         this.player.update();
+        // console.log(this.player.y);
+        if(this.player.x >= this.sign.x && this.player.y == this.sign.y){
+            this.finishLine();
+        }
+        this.pauseButton.x = this.cameras.main.scrollX;
+        this.pauseButton.y = this.cameras.main.scrollY;
      }
+
+     private finishLine(){
+        this.cameras.main.fadeOut(800);
+        this.scene.start("level2");
+    }
+
+    private pauseButtonOnClick() {
+        this.scene.pause();
+        this.scene.launch("ingameMenu", { key: "level1" });
+    }
+
+    private onEscPressed(): void {
+        this.scene.pause();
+        this.scene.launch("ingameMenu", { key: "level1" });
+    }
 }
 
 export { Level1 }
