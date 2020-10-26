@@ -61,12 +61,13 @@ class Player extends BaseActor {
         this.keys.escape.on("down", this.onEscPress, this);
 
         this.setupPlayerEvents();
+        
+        // this.setupKeyboardEvents();
     }
 
     public update(): void {
         this.handleKeyboardInput();
         this.animations();
-        this.setupKeyboardEvents();
     }
 
     private onEscPress(): void {
@@ -94,6 +95,20 @@ class Player extends BaseActor {
             this.body.velocity.normalize().scale(this.walkSpeed);
         }
 
+        if (this.keys.z.isDown) {
+            this.updatePlayer = false;
+            this.anims.play("player_attack", true);
+            this.setSize(40, 32);
+            this.setOffset(10, 28);
+        }
+
+        if (this.keys.space.isDown) {
+            if(this.body.blocked.down) {
+                this.updatePlayer = false;
+                this.setVelocityY(-6000);
+                this.anims.play("player_jump", true);
+            }
+        } 
     }
 
     private animations(): void {
@@ -116,6 +131,17 @@ class Player extends BaseActor {
                 this.setSize(23, 32);
                 this.setOffset(10, 28)
             }
+            
+            if (this.keys.z.isDown) {
+                this.anims.play("player_attack", true);
+            }
+            
+            if (this.keys.space.isDown) {
+                if(this.body.blocked.down) {
+                    this.anims.play("player_jump", true);
+                }
+            } 
+           
         }
     }
 
@@ -137,11 +163,14 @@ class Player extends BaseActor {
 
         this.keys.space.on("down", () => {
             // if (this.body.velocity.y != this.scene.physics.world.gravity.y && this.body.velocity.y != -6000) {
+                if(this.body.blocked.down) {
+
+                
                 this.updatePlayer = false;
-                this.body.velocity.y = -6000;
+                this.setVelocityY(-6000);
                 this.anims.play("player_jump", true);
                
-        //    }
+           }
         });
     }
 

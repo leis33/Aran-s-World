@@ -27,7 +27,10 @@ class GameApp extends Phaser.Game {
                 physics: {
                     default: "arcade",
                     arcade: {
-                        debug: true
+                        debug: true,
+                        gravity: {
+                            y: 8900
+                        }
                     }
                 },
                 scene: [Preload, Start, Level1, Level2, Level3, InGameMenu, GameOver]
