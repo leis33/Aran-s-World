@@ -61,8 +61,6 @@ class Player extends BaseActor {
         this.keys.escape.on("down", this.onEscPress, this);
 
         this.setupPlayerEvents();
-        
-        // this.setupKeyboardEvents();
     }
 
     public update(): void {
@@ -103,12 +101,12 @@ class Player extends BaseActor {
         }
 
         if (this.keys.space.isDown) {
-            if(this.body.blocked.down) {
+           if (this.body.blocked.down) {
                 this.updatePlayer = false;
                 this.setVelocityY(-6000);
                 this.anims.play("player_jump", true);
             }
-        } 
+       } 
     }
 
     private animations(): void {
@@ -150,28 +148,6 @@ class Player extends BaseActor {
             this.emit("customEventName_" + anim.key);
 
             this.updatePlayer = true;
-        });
-    }
-
-    private setupKeyboardEvents(): void {
-        this.keys.z.on("down", () => {
-            this.updatePlayer = false;
-            this.setSize(40, 32);
-            this.setOffset(10, 28);
-            this.anims.play("player_attack", true);
-            console.log("played attack");
-        });
-
-        this.keys.space.on("down", () => {
-            // if (this.body.velocity.y != this.scene.physics.world.gravity.y && this.body.velocity.y != -6000) {
-                if(this.body.blocked.down) {
-
-                
-                this.updatePlayer = false;
-                this.setVelocityY(-6000);
-                this.anims.play("player_jump", true);
-               
-           }
         });
     }
 
