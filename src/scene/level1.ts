@@ -1,6 +1,7 @@
 import { Enemy } from "../actors/Enemy";
 import { Player } from "../actors/Player";
 import { BaseButton } from "../graphics/BaseButton";
+import { Collectible } from "../actors/Collectible";
 
 class Level1 extends Phaser.Scene {
     private map: Phaser.Tilemaps.Tilemap;
@@ -67,6 +68,8 @@ class Level1 extends Phaser.Scene {
 
         this.physics.add.collider(this.player, foregroundLayer1);
         foregroundLayer1.setCollisionByProperty({ spikeCollides: true });
+
+    
 
         foregroundLayer1.renderDebug(this.add.graphics(), {
             tileColor: null,
@@ -135,6 +138,47 @@ class Level1 extends Phaser.Scene {
          enemy6.setSize(18, 40);
          enemy6.setOffset(39, 20);
          this.add.existing(enemy6);
+
+         //collectables
+
+         let diamond1 = new Collectible(this, 300 , 600 , "diamonds", "diamond");
+        this.physics.add.collider(this.player, diamond1, this.player.onPlayerDiamondCollision, null, this);
+
+        let heart1 = new Collectible(this, 400 , 340 , "hearts", "hearts");
+        this.physics.add.collider(this.player, heart1, this.player.onPlayerHeartCollision, null, this);
+
+        let diamond2 = new Collectible(this, 750 , 370 , "diamonds", "diamond");
+        this.physics.add.collider(this.player, diamond2, this.player.onPlayerDiamondCollision, null, this);
+
+        let heart2 = new Collectible(this, 1140 , 440 , "hearts", "hearts");
+        this.physics.add.collider(this.player, heart2, this.player.onPlayerHeartCollision, null, this);
+
+        let diamond3 = new Collectible(this, 1350 , 240 , "diamonds", "diamond");
+        this.physics.add.collider(this.player, diamond3, this.player.onPlayerDiamondCollision, null, this);
+
+        let heart3 = new Collectible(this, 1900 , 530 , "hearts", "hearts");
+        this.physics.add.collider(this.player, heart3, this.player.onPlayerHeartCollision, null, this);
+
+        let diamond4 = new Collectible(this, 2190 , 500 , "diamonds", "diamond");
+        this.physics.add.collider(this.player, diamond4, this.player.onPlayerDiamondCollision, null, this);
+
+        let heart4 = new Collectible(this, 2300 , 500 , "hearts", "hearts");
+        this.physics.add.collider(this.player, heart4, this.player.onPlayerHeartCollision, null, this);
+
+        let diamond5 = new Collectible(this, 2830 , 650 , "diamonds", "diamond");
+        this.physics.add.collider(this.player, diamond5, this.player.onPlayerDiamondCollision, null, this);
+
+        let diamond6 = new Collectible(this, 2850 , 650 , "diamonds", "diamond");
+        this.physics.add.collider(this.player, diamond6, this.player.onPlayerDiamondCollision, null, this);
+
+        let diamond7 = new Collectible(this, 2870 , 650 , "diamonds", "diamond");
+        this.physics.add.collider(this.player, diamond7, this.player.onPlayerDiamondCollision, null, this);
+
+        let diamond8 = new Collectible(this, 2890 , 650 , "diamonds", "diamond");
+        this.physics.add.collider(this.player, diamond8, this.player.onPlayerDiamondCollision, null, this);
+
+        let diamond9 = new Collectible(this, 2910 , 650 , "diamonds", "diamond");
+        this.physics.add.collider(this.player, diamond9, this.player.onPlayerDiamondCollision, null, this);
 
      }
 
