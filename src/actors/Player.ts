@@ -180,7 +180,7 @@ class Player extends BaseActor {
 
     public onPlayerEnemyCollision(player: Phaser.Physics.Arcade.Sprite, enemy: Phaser.Physics.Arcade.Sprite) {
         if (player.body.width == 40) {
-            this.scene.sound.play("hit");
+            //this.scene.sound.play("hit");
             //this.hitAudio.play();
             enemy.destroy();
         } else {
@@ -190,7 +190,7 @@ class Player extends BaseActor {
 
     public onPlayerDiamondCollision(player: Phaser.Physics.Arcade.Sprite, diamond: Phaser.Physics.Arcade.Sprite){
         diamond.destroy();
-        this.collectDiaAudio.play();
+        //this.collectDiaAudio.play();
         // let diamondSmall = this.scene.add.image(300, 200, "diamonds", 1);
         // diamondSmall.setScale(0.7);
         // this.scene.add.existing(diamondSmall);
@@ -198,7 +198,7 @@ class Player extends BaseActor {
 
     public onPlayerHeartCollision(player: Phaser.Physics.Arcade.Sprite, heart: Phaser.Physics.Arcade.Sprite){
         heart.destroy();
-        this.collectHpAudio.play();
+        //this.collectHpAudio.play();
         // let heartSmall = this.scene.add.image(100, 100, "hearts", 1);
         // heartSmall.setScale(0.7);
         // this.scene.add.existing(heartSmall);

@@ -87,12 +87,12 @@ class Level1 extends Phaser.Scene {
 
         //enemeis
 
-        let enemy1 = new Enemy(this, 200, 450, "enemy4", "enemy4_idle");
+        let enemy1 = new Enemy(this, 180, 450, "enemy4", "enemy4_idle");
         enemy1.setDepth(6);
         this.physics.add.collider(enemy1, foregroundLayer1);
         this.physics.add.collider(this.player, enemy1, this.player.onPlayerEnemyCollision, null, this);
-        enemy1.setSize(18, 40);
-        enemy1.setOffset(49, 20);
+        enemy1.setSize(18, 58);
+        enemy1.setOffset(53, 7);
         this.add.existing(enemy1);
         enemy1.scaleX = -1;
 
@@ -101,7 +101,7 @@ class Level1 extends Phaser.Scene {
         this.physics.add.collider(enemy2, foregroundLayer1);
         this.physics.add.collider(this.player, enemy2, this.player.onPlayerEnemyCollision, null, this);
         enemy2.setSize(18, 40);
-        enemy2.setOffset(39, 20);
+        enemy2.setOffset(39, 22);
         this.add.existing(enemy2);
         
         let enemy3 = new Enemy(this, 1730, 550, "enemy5", "enemy5_idle");
@@ -109,7 +109,7 @@ class Level1 extends Phaser.Scene {
         this.physics.add.collider(enemy3, foregroundLayer1);
         this.physics.add.collider(this.player, enemy3, this.player.onPlayerEnemyCollision, null, this);
         enemy3.setSize(18, 40);
-        enemy3.setOffset(39, 20);
+        enemy3.setOffset(39, 22);
         this.add.existing(enemy3);
 
          let enemy4 = new Enemy(this, 2030, 300, "enemy5", "enemy5_idle");
@@ -117,15 +117,15 @@ class Level1 extends Phaser.Scene {
          this.physics.add.collider(enemy4, foregroundLayer1);
          this.physics.add.collider(this.player, enemy4, this.player.onPlayerEnemyCollision, null, this);
          enemy4.setSize(18, 40);
-         enemy4.setOffset(39, 20);
+         enemy4.setOffset(39, 22);
          this.add.existing(enemy4); 
 
          let enemy5 = new Enemy(this, 2660, 450, "enemy4", "enemy4_idle");
          enemy5.setDepth(6);
          this.physics.add.collider(enemy5, foregroundLayer1);
          this.physics.add.collider(this.player, enemy5, this.player.onPlayerEnemyCollision, null, this);
-         enemy5.setSize(18, 40);
-         enemy5.setOffset(39, 20);
+         enemy5.setSize(18, 58);
+         enemy5.setOffset(34, 7);
          this.add.existing(enemy5);
 
          let enemy6 = new Enemy(this, 2400, 450, "enemy5", "enemy5_idle");
@@ -133,7 +133,7 @@ class Level1 extends Phaser.Scene {
          this.physics.add.collider(enemy6, foregroundLayer1);
          this.physics.add.collider(this.player, enemy6, this.player.onPlayerEnemyCollision, null, this);
          enemy6.setSize(18, 40);
-         enemy6.setOffset(39, 20);
+         enemy6.setOffset(39, 22);
          this.add.existing(enemy6);
 
      }
