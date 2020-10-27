@@ -109,7 +109,7 @@ class Level2 extends Phaser.Scene {
         this.player.emitter.on("escPressed", this.onEscPressed, this);
 
 
-        this.pauseButton = new BaseButton(this, 30, 30, "optionbuttons", 1, "", 4);
+        this.pauseButton = new BaseButton(this, this.cameras.main.width/2, 30, "optionbuttons", 1, "", 4);
         this.pauseButton.setDepth(8);
         this.pauseButton.setOnClick(this.pauseButtonOnClick, this);
         this.add.existing(this.pauseButton);
@@ -126,7 +126,7 @@ class Level2 extends Phaser.Scene {
         let enemy2 = new Enemy(this, enemy2Point.x  , enemy2Point.y  , "enemy1_1", "enemy1_attack");
         this.physics.add.collider(enemy2, MainLayer);
         MainLayer.setCollisionByProperty({ collides: true });
-        this.physics.add.collider(this.player, enemy2, this.player.onPlayerEnemyCollision, null, this);
+        this.physics.add.collider(this.player, enemy2,this.player.onPlayerEnemyCollision, null, this);
         enemy2.setSize(32, 32);
         enemy2.scaleX = -1;
         enemy2.setOffset(32, 0);
@@ -162,7 +162,7 @@ class Level2 extends Phaser.Scene {
 
         //diamonds
         let diamond1 = new Collectible(this, diamondPoint1.x, diamondPoint2.y + 100, "diamonds","diamond");
-        this.physics.add.collider(this.player, diamond1, this.player.onPlayerDiamondCollision, null, this);
+        this.physics.add.collider(this.player, diamond1,this.player.onPlayerDiamondCollision, null, this);
 
         let diamond2 = new Collectible(this, diamondPoint2.x, diamondPoint2.y, "diamonds","diamond");
         this.physics.add.collider(this.player, diamond2, this.player.onPlayerDiamondCollision, null, this);

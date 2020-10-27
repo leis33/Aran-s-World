@@ -17,6 +17,11 @@ class Collectible extends BaseActor {
         this.anims.play(animsKey, true);
         scene.add.existing(this);
     }
+
+    // public onCollected(x: number, y: number, texture: string){
+    //     let collectedIdentificator = this.scene.add.image(x, y, texture, 1);
+    //     this.scene.add.existing(collectedIdentificator);
+    // }
 }
 
 export { Collectible }

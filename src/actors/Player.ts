@@ -119,21 +119,32 @@ class Player extends BaseActor {
             }
             this.body.velocity.normalize().scale(this.walkSpeed);
         }
-
         if (this.keys.z.isDown) {
             this.updatePlayer = false;
             this.anims.play("player_attack", true);
             this.setSize(40, 32);
             this.setOffset(10, 28);
         }
-
+        if(this.keys.shift.isDown ){
+            if (this.keys.space.isDown) {
+                if (this.body.blocked.down) {
+                    this.updatePlayer = false;
+                    this.setVelocityY(-12000);
+                    this.anims.play("player_jump", true);
+                }
+            }
+       }
+       else {
         if (this.keys.space.isDown) {
-           if (this.body.blocked.down) {
+            if (this.body.blocked.down) {
                 this.updatePlayer = false;
                 this.setVelocityY(-6000);
                 this.anims.play("player_jump", true);
             }
-       } 
+        }
+       }
+       
+    //    this.body.velocity.normalize().scale(this.runSpeed);
     }
 
     private animations(): void {
