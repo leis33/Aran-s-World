@@ -11,6 +11,11 @@ class Level2 extends Phaser.Scene {
     public sceneName: string = "level2";
     private sign: Phaser.GameObjects.Image;
     private points: number = 0;
+
+    private hitAudio: Phaser.Sound.BaseSound;
+    private collectDiaAudio: Phaser.Sound.BaseSound;
+    private CollectHpAudio: Phaser.Sound.BaseSound;
+
     constructor() {
         super("level2");
     }
@@ -171,7 +176,6 @@ class Level2 extends Phaser.Scene {
         let heart1 = new Collectible(this, heartPoint1.x, heartPoint1.y, "hearts", "heart");
         heart1.setScale(1.5);
         this.physics.add.collider(this.player, heart1, this.player.onPlayerHeartCollision, null, this);
-        
     }
 
     update() {

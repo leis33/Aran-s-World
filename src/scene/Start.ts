@@ -7,6 +7,8 @@ class Start extends Phaser.Scene {
     private background2: BackgroundGraphics;
     private background3: BackgroundGraphics;
 
+    private audio: Phaser.Sound.BaseSound;
+
     constructor() {
         super("start");
     }
@@ -25,8 +27,16 @@ class Start extends Phaser.Scene {
 
         this.buttonStart = new BaseButton(this, this.cameras.main.width / 2, this.cameras.main.height / 2 + 100, "buttonsstart", 0, "START", 1);
         this.buttonStart.text.setSize(40, 40);
-        this.buttonStart.setOnClick(() => { this.scene.start("level1") }, this);
+        this.buttonStart.setOnClick(() => { this.scene.start("level2") }, this);
         this.add.existing(this.buttonStart);
+
+        this.audio = this.sound.add("backgroundMusic", {
+            mute: false,
+            volume: 0.15,
+            rate: 1,
+            loop: true
+        });
+        this.audio.play();
     }
 
     update() {

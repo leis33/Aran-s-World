@@ -13,6 +13,11 @@ class Player extends BaseActor {
 
     private updatePlayer: boolean = true;
 
+    private hitAudio: Phaser.Sound.BaseSound;
+    private collectDiaAudio: Phaser.Sound.BaseSound;
+    private collectHpAudio: Phaser.Sound.BaseSound;
+
+
     constructor(scene: Phaser.Scene, x: number, y: number) {
         super(scene, x, y, "player");
 
@@ -61,6 +66,28 @@ class Player extends BaseActor {
         this.keys.escape.on("down", this.onEscPress, this);
 
         this.setupPlayerEvents();
+        
+        //sfx
+        this.hitAudio = this.scene.sound.add("hit", {
+            mute: false,
+            volume: 0.15,
+            rate: 1,
+            loop: false
+        });
+
+        this.collectDiaAudio = this.scene.sound.add("collectDiamond", {
+            mute: false,
+            volume: 0.15,
+            rate: 1,
+            loop: false
+        });
+
+        this.collectHpAudio = this.scene.sound.add("collectHeart", {
+            mute: false,
+            volume: 0.15,
+            rate: 1,
+            loop: false
+        });
     }
 
     public update(): void {
@@ -153,6 +180,8 @@ class Player extends BaseActor {
 
     public onPlayerEnemyCollision(player: Phaser.Physics.Arcade.Sprite, enemy: Phaser.Physics.Arcade.Sprite) {
         if (player.body.width == 40) {
+            this.scene.sound.play("hit");
+            //this.hitAudio.play();
             enemy.destroy();
         } else {
             //player.destroy();
@@ -161,6 +190,7 @@ class Player extends BaseActor {
 
     public onPlayerDiamondCollision(player: Phaser.Physics.Arcade.Sprite, diamond: Phaser.Physics.Arcade.Sprite){
         diamond.destroy();
+        this.collectDiaAudio.play();
         // let diamondSmall = this.scene.add.image(300, 200, "diamonds", 1);
         // diamondSmall.setScale(0.7);
         // this.scene.add.existing(diamondSmall);
@@ -168,6 +198,7 @@ class Player extends BaseActor {
 
     public onPlayerHeartCollision(player: Phaser.Physics.Arcade.Sprite, heart: Phaser.Physics.Arcade.Sprite){
         heart.destroy();
+        this.collectHpAudio.play();
         // let heartSmall = this.scene.add.image(100, 100, "hearts", 1);
         // heartSmall.setScale(0.7);
         // this.scene.add.existing(heartSmall);

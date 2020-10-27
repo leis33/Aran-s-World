@@ -66,8 +66,6 @@ class Level1 extends Phaser.Scene {
         this.pauseButton.setDepth(8);
         this.pauseButton.setOnClick(this.pauseButtonOnClick, this);
         this.add.existing(this.pauseButton);
-
-        console.log(finishPoint.x, finishPoint.y);
      }
 
     update(){

@@ -59,6 +59,12 @@ class Preload extends Phaser.Scene {
         this.load.atlas("enemy1_1", "./assets/anims/enemy1_1.png", "./assets/anims/enemy1_1.json");
         this.load.atlas("enemy3_1", "./assets/anims/enemy3_1.png", "./assets/anims/enemy3_1.json");
 
+        //audio
+        this.load.audio("backgroundMusic", ["./assets/audio/backgroundMusic.mp3", "./assets/audio/backgroundMusic.m4a", "./assets/audio/backgroundMusic.ogg"]);
+        this.load.audio("hit", ["./assets/audio/hit.mp3", "./assets/audio/hit.m4a", "./assets/audio/hit.ogg"]);
+        this.load.audio("collectDiamond", ["./assets/audio/collectDiamond.mp3", "./assets/audio/collectDiamond.m4a", "./assets/audio/collectDiamond.ogg"]);
+        this.load.audio("collectHeart", ["./assets/audio/collectHeart.mp3", "./assets/audio/collectHeart.m4a", "./assets/audio/collectHeart.ogg"]);
+
         this.loadingText = this.add.text(this.cameras.main.width / 2, this.cameras.main.height / 2, "Loading", { font: "40px Calibri", fill: "white" });
         this.loadingText.setOrigin(0.5);
         this.add.existing(this.loadingText);
