@@ -84,6 +84,9 @@ class Level1 extends Phaser.Scene {
         this.pauseButton.setOnClick(this.pauseButtonOnClick, this);
         this.add.existing(this.pauseButton);
 
+
+        //enemeis
+
         let enemy1 = new Enemy(this, 200, 450, "enemy4", "enemy4_idle");
         enemy1.setDepth(6);
         this.physics.add.collider(enemy1, foregroundLayer1);
