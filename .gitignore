@@ -17,6 +17,8 @@ build/
 ### Project specific
 #
 
+*.tsx
+*.tmx
 *.suo
 *.js.map
 *.js

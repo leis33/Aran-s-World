@@ -1,5 +1,6 @@
 import { BackgroundGraphics } from "../graphics/BackgroundGraphics";
 import { BaseButton } from "../graphics/BaseButton";
+
 class Start extends Phaser.Scene {
     private logo: Phaser.GameObjects.Image;
     private buttonStart: BaseButton;

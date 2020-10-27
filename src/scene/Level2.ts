@@ -6,9 +6,7 @@ import { Collectible } from "../actors/Collectible";
 class Level2 extends Phaser.Scene {
     private map: Phaser.Tilemaps.Tilemap;
     private player: Player;
-    private enemy: Enemy;
     private pauseButton: BaseButton;
-    public sceneName: string = "level2";
     private sign: Phaser.GameObjects.Image;
     private points: number = 0;
 
@@ -66,14 +64,6 @@ class Level2 extends Phaser.Scene {
         let MainLayer: Phaser.Tilemaps.StaticTilemapLayer = this.map.createStaticLayer("Main Layer", [worldTileset,tileSet]).setDepth(7);
         let ObjectLayer: Phaser.Tilemaps.ObjectLayer = this.map.getObjectLayer("Object Layer 1");
 
-        // Background1Layer.setScale(0.7);
-        // Background2Layer.setScale(0.7);
-        // Background3Layer.setScale(0.7);
-        // TreeLayer1.setScale(0.7);
-        // TileLayer.setScale(0.7);
-        // TreeLayer2.setScale(0.7);
-        // MainLayer.setScale(0.7);
-
         let spawnPoint: any = this.map.findObject(ObjectLayer, (obj) => obj.name == "Start");
         let finishPoint: any = this.map.findObject(ObjectLayer, (obj) => obj.name == "Finish");
         let enemy1Point: any = this.map.findObject(ObjectLayer, (obj) => obj.name == "enemy1");
@@ -97,8 +87,6 @@ class Level2 extends Phaser.Scene {
         this.sign.setTint(0x63543c);
         this.add.existing(this.sign);
 
-        // this.cameras.main.setBounds(0, 0, this.map.widthInPixels - 970, this.map.heightInPixels - 300);
-        // this.physics.world.setBounds(0, 0, this.map.widthInPixels - 970, this.map.heightInPixels - 300);
         this.cameras.main.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
         this.physics.world.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
         this.cameras.main.startFollow(this.player);
@@ -208,14 +196,7 @@ class Level2 extends Phaser.Scene {
     //     diamond.visible = false;
     //     this.points += 5;
     //     console.log(this.points);
-
-
     // }
-
-    // private getSceneName(){
-    //     return this.sceneName;
-    // }
-
 }
 
 export { Level2 }

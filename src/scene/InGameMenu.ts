@@ -1,6 +1,5 @@
 import { BaseButton } from "../graphics/BaseButton";
 import { MenuScene } from "./MenuScene";
-import { Player } from "../actors/Player";
 
 class InGameMenu extends MenuScene {
     private restartBtn: BaseButton;
@@ -33,7 +32,6 @@ class InGameMenu extends MenuScene {
     }
 
     private onRestart(): void {
-        // this.scene.stop(this.sceneKey);
         this.scene.stop("ingameMenu");
         this.scene.start(this.sceneKey);
         console.log("restart");

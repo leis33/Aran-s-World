@@ -1,7 +1,5 @@
-  
 import { CustomKeyboardInput } from "../utils/CustomKeyboardInput";
 import { BaseActor } from "./BaseActor";
-import { Enemy } from "./Enemy";
 
 class Player extends BaseActor {
     private readonly walkSpeed: number = 150;
@@ -142,7 +140,7 @@ class Player extends BaseActor {
                 this.anims.play("player_jump", true);
             }
         }
-       }
+    }
        
     //    this.body.velocity.normalize().scale(this.runSpeed);
     }
@@ -201,7 +199,7 @@ class Player extends BaseActor {
 
     public onPlayerDiamondCollision(player: Phaser.Physics.Arcade.Sprite, diamond: Phaser.Physics.Arcade.Sprite){
         diamond.destroy();
-        //this.collectDiaAudio.play();
+        // this.collectDiaAudio.play();
         // let diamondSmall = this.scene.add.image(300, 200, "diamonds", 1);
         // diamondSmall.setScale(0.7);
         // this.scene.add.existing(diamondSmall);

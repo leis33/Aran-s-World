@@ -23,7 +23,6 @@ class Preload extends Phaser.Scene {
 
         this.load.atlas("player", "./assets/anims/player.png", "./assets/anims/player.json");
 
-        // this.load.image("background_day1", "./assets/Level1/background_day1.png");
         this.load.image("background_day2", "./assets/Level1/background_day2.png");
         this.load.image("background_day3", "./assets/Level1/background_day3.png");
         this.load.image("background_day1", "./assets/Level1/background_night1.png");
@@ -31,7 +30,6 @@ class Preload extends Phaser.Scene {
         this.load.image("backgrounD1", "./assets/Level1/background_day1.png");
         this.load.image("backgrounD2", "./assets/Level1/background_day2.png");
         this.load.image("backgrounD3", "./assets/Level1/background_day3.png");
-        // this.load.image("backgrounD4", "./assets/Level1/mainlevbuild_A.png");
         this.load.image("decorations1", "./assets/Level1/decorative.png");
         this.load.image("mainlevbuild1", "./assets/Level1/mainlevbuild_A.png");
         this.load.tilemapTiledJSON("level1", "./assets/Level1/Level1.json");

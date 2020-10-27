@@ -52,16 +52,6 @@ class Level3 extends Phaser.Scene {
 
         let foregroundLayer1: Phaser.Tilemaps.StaticTilemapLayer = this.map.createStaticLayer("foreground1", [tileSet]).setDepth(6);
         let foregroundLayer2: Phaser.Tilemaps.StaticTilemapLayer = this.map.createStaticLayer("foreground2", [tileSet]).setDepth(5);
-        
-        // backgroundLayer1.setScale(0.7);
-        // backgroundLayer2.setScale(0.7);
-        // backgroundLayer3.setScale(0.7);
-        // backgroundLayer4.setScale(0.7);
-        // backgroundLayer5.setScale(0.7);
-        // foregroundLayer1.setScale(0.7);
-        // foregroundLayer2.setScale(0.7);
-        // this.cameras.main.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels - 300);
-        // this.physics.world.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels - 300);
 
         let objectLayer: Phaser.Tilemaps.ObjectLayer = this.map.getObjectLayer("objects");
 
