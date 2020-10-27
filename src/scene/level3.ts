@@ -89,7 +89,7 @@ class Level3 extends Phaser.Scene {
         this.sign.setTint(0x63543c);
         this.add.existing(this.sign);
 
-        this.pauseButton = new BaseButton(this, 30, 30, "optionbuttons", 1, "", 4);
+        this.pauseButton = new BaseButton(this, this.cameras.main.width/2, 30, "optionbuttons", 1, "", 4);
         this.pauseButton.setDepth(8);
         this.pauseButton.setOnClick(this.pauseButtonOnClick, this);
         this.add.existing(this.pauseButton);

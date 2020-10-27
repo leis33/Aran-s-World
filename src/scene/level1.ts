@@ -53,7 +53,7 @@ class Level1 extends Phaser.Scene {
         let spawnPoint: any = this.map.findObject(objectLayer, (obj) => obj.name == "Start")
         let finishPoint: any = this.map.findObject(objectLayer, (obj) => obj.name == "Finish");
 
-        this.player = new Player(this, 200, 600).setDepth(6); 
+        this.player = new Player(this, 200, 600).setDepth(6);
         this.add.existing(this.player);
 
         this.player.emitter.on("escPressed", this.onEscPressed, this);
@@ -79,7 +79,7 @@ class Level1 extends Phaser.Scene {
         this.sign.setTint(0x63543c);
         this.add.existing(this.sign);
 
-        this.pauseButton = new BaseButton(this, 30, 30, "optionbuttons", 1, "", 4);
+        this.pauseButton = new BaseButton(this, this.cameras.main.width/2, 30, "optionbuttons", 1, "", 4);
         this.pauseButton.setDepth(8);
         this.pauseButton.setOnClick(this.pauseButtonOnClick, this);
         this.add.existing(this.pauseButton);

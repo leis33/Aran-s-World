@@ -119,21 +119,32 @@ class Player extends BaseActor {
             }
             this.body.velocity.normalize().scale(this.walkSpeed);
         }
-
         if (this.keys.z.isDown) {
             this.updatePlayer = false;
             this.anims.play("player_attack", true);
             this.setSize(40, 32);
             this.setOffset(10, 28);
         }
-
+        if(this.keys.shift.isDown ){
+            if (this.keys.space.isDown) {
+                if (this.body.blocked.down) {
+                    this.updatePlayer = false;
+                    this.setVelocityY(-12000);
+                    this.anims.play("player_jump", true);
+                }
+            }
+       }
+       else {
         if (this.keys.space.isDown) {
-           if (this.body.blocked.down) {
+            if (this.body.blocked.down) {
                 this.updatePlayer = false;
                 this.setVelocityY(-6000);
                 this.anims.play("player_jump", true);
             }
-       } 
+        }
+       }
+       
+    //    this.body.velocity.normalize().scale(this.runSpeed);
     }
 
     private animations(): void {
@@ -180,7 +191,7 @@ class Player extends BaseActor {
 
     public onPlayerEnemyCollision(player: Phaser.Physics.Arcade.Sprite, enemy: Phaser.Physics.Arcade.Sprite) {
         if (player.body.width == 40) {
-            this.scene.sound.play("hit");
+           // this.scene.sound.play("hit");
             //this.hitAudio.play();
             enemy.destroy();
         } else {
@@ -190,7 +201,9 @@ class Player extends BaseActor {
 
     public onPlayerDiamondCollision(player: Phaser.Physics.Arcade.Sprite, diamond: Phaser.Physics.Arcade.Sprite){
         diamond.destroy();
-        this.collectDiaAudio.play();
+        // let collectedIdentificator = this.scene.add.image(x, y, texture, 1);
+        // this.scene.add.existing(collectedIdentificator);
+         //this.collectDiaAudio.play();
         // let diamondSmall = this.scene.add.image(300, 200, "diamonds", 1);
         // diamondSmall.setScale(0.7);
         // this.scene.add.existing(diamondSmall);
@@ -198,7 +211,7 @@ class Player extends BaseActor {
 
     public onPlayerHeartCollision(player: Phaser.Physics.Arcade.Sprite, heart: Phaser.Physics.Arcade.Sprite){
         heart.destroy();
-        this.collectHpAudio.play();
+       // this.collectHpAudio.play();
         // let heartSmall = this.scene.add.image(100, 100, "hearts", 1);
         // heartSmall.setScale(0.7);
         // this.scene.add.existing(heartSmall);
