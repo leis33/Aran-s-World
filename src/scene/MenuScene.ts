@@ -35,6 +35,8 @@ class MenuScene extends Phaser.Scene {
         let test: Phaser.GameObjects.Text = new Phaser.GameObjects.Text(this, 300, 300, "TEST AAAAAA", { fontSize: "40px", color: "#00ff00" });
         test.setOrigin(0.5);
         this.add.existing(test);
+
+        // and definetely this
     }
 
     public setOnCloseBtnCallback(callback: Function, context: any): void {
