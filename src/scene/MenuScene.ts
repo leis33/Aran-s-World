@@ -19,6 +19,7 @@ class MenuScene extends Phaser.Scene {
     }
 
     create() {
+
         this.background = this.add.sprite(this.cameras.main.centerX, this.cameras.main.centerY, "window");
         this.background.setScale(0.17, 0.15);
 
@@ -29,6 +30,11 @@ class MenuScene extends Phaser.Scene {
         this.closeBtn = new BaseButton(this, this.background.x, this.background.y + this.background.displayHeight / 2 - 40, "optionbuttons", 0, "", 2);
         this.setOnCloseBtnCallback(() => { this.scene.stop(); this.scene.resume("level2") }, this);
         this.add.existing(this.closeBtn);
+        
+        // delete this
+        let test: Phaser.GameObjects.Text = new Phaser.GameObjects.Text(this, 300, 300, "TEST AAAAAA", { fontSize: "40px", color: "#00ff00" });
+        test.setOrigin(0.5);
+        this.add.existing(test);
     }
 
     public setOnCloseBtnCallback(callback: Function, context: any): void {
